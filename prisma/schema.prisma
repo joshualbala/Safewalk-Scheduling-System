@@ -1,0 +1,45 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
+    // Further reading:
+    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
+    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
+    url      = env("POSTGRES_URL")
+}
+
+model User {
+    id           Int       @id @default(autoincrement())
+    email        String    @unique
+    regularHours Hours[]
+    inHours Hours[]
+    availHours Hours[]
+}
+
+
+enum Hours{
+    mon911
+    tues911
+    wed911
+    thur911
+    fri911
+    sat911
+    sun911
+    mon1012
+    tues1012
+    wed1012
+    thur1012
+    fri1012
+    sat1012
+    sun1012
+    mon122
+    tues122
+    wed122
+    thur122
+    fri122
+    sat122
+    sun122
+}
