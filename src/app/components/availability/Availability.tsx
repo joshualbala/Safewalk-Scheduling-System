@@ -4,7 +4,6 @@ import {AvailProps} from "@/app/components/availability/AvailProps"
 export const Availability: React.FC<AvailProps> = (props) => {
     return(
         <>
-        <button>Hello!</button>
         </>
     )
 
