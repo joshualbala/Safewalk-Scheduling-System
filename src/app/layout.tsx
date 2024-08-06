@@ -20,7 +20,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
     <html lang="en">
         <body className={inter.className}>
         <div className="header" ><Component/></div>
-        <Availability className="hello" curSubs={[]} ></Availability>
+        {/* <Availability className="hello" curSubs={[]} ></Availability> */}
           <br></br>
             {children}
           <footer className="footer"></footer>  
