@@ -1,9 +1,8 @@
 'use client'
 import React, { useState, useRef, useEffect } from "react";
-import {InProps} from "@/app/components/sub_in/InProps"
 import styles from "@/app/components/sub_in/page.module.css";
 
-export const Sub_In: React.FC<InProps> = (props) => {
+export default function sub_in() {
     return(
         <main className={styles.main}>
         <div className={styles.border}>

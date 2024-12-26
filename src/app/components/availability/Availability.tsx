@@ -1,9 +1,8 @@
 'use client'
 import React, { useState, useRef, useEffect } from "react";
-import {AvailProps} from "@/app/components/availability/AvailProps"
 import styles from "@/app/components/availability/page.module.css";
 
-export const Availability: React.FC<AvailProps> = (props) => {
+export default function availability() {
     return(
         <main className={styles.main}>
         <div className={styles.border}>

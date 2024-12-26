@@ -4,8 +4,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import type { ReactNode } from "react";
 import  {Component} from "./components/header_button";
-import {Availability} from "./components/availability/Availability";
-import { Hour } from "./components/hours";
 
 const inter = Inter({ subsets: ["latin"] });
 
