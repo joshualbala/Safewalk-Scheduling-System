@@ -4,7 +4,8 @@ import styles from "@/app/components/availability/page.module.css";
 
 export default function availability() {
     return(
-        <main className={styles.main}>
+        // <main className={styles.main}>
+        <main className= "flex flex-col justify-between items-center min-h-screen p-24">
         <div className={styles.border}>
             <div className={styles.grid_container}>
                 {/* <!-- Create 32 grid items (8 columns * 4 rows) --> */}
