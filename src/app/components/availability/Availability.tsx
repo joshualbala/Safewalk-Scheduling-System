@@ -8,7 +8,6 @@ export default function availability() {
         <main className="flex flex-col justify-between items-center min-h-screen p-24">
         <div className="p-5 border-8 border-solid border-green-700 rounded-3xl">
             <div className="grid grid-cols-8 grid-rows-4 gap-2.5">
-                
 
                 {/* 1 x 1 */}
                 <div className="bg-green-700 w-24 h-24"></div>
