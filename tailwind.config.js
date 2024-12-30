@@ -4,18 +4,24 @@ const { variants } = require('tailwindcss/stubs/defaultConfig.stub');
 module.exports = {
   
   theme: {
-    extend: {},
-    theme: {
-      extend:{
-        borderWidth: {
-          '10': '10px',
-          '12': '12px',
-          '16': '16px'
-        }
-      }
+    extend: {
+      borderWidth: {
+      '10': '10px',
+      '12': '12px',
+      '16': '16px'
+    },
+    lineHeight:{
+      '14':'30px',
+      '12': '100px',
+
+    }
+  },
+      
+    
+      
       
   
-    }
+    
   },
   content: ["./src/**/*.{ts, tsx}"],
   plugins: [],
