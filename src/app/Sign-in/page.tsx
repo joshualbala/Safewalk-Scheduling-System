@@ -1,26 +1,32 @@
 "use client";
 import React, { useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import {auth} from "@/app/firebaseConfig";
+import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import { auth } from "@/app/firebaseConfig";
 import { useRouter } from "next/navigation";
 
 export default function SignInPage() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     try {
-      await signInWithEmailAndPassword(email, password);
-      if (user) {
-        setEmail("");
-        setPassword("");
-        router.push("/Availability");
+      const res = await signInWithEmailAndPassword(email, password);
+      console.log("EMAIL", email);
+      console.log("PASSWORD", password);
+      console.log({res})
+      setEmail("");
+      setPassword("");
+      if(res?.user){
+        router.push("/availability");
       }
-    } catch (err) {
-      console.error("Sign-in error:", err);
+      else{
+        console.log("WRONG EMAIL OR PASSWORD");
+      }
+    } catch(e) {
+      console.error("Sign-in error:", e);
     }
   };
 
@@ -28,7 +34,6 @@ export default function SignInPage() {
     <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
       <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold text-center text-neon-yellow mb-6">Sign In</h1>
-        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -37,7 +42,6 @@ export default function SignInPage() {
               Email
             </label>
             <input
-              id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -54,7 +58,6 @@ export default function SignInPage() {
               Password
             </label>
             <input
-              id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -64,25 +67,11 @@ export default function SignInPage() {
             />
           </div>
           <button
-            type="submit"
-            className={`w-full py-2 px-4 bg-neon-yellow text-gray-900 font-bold rounded-md shadow-md focus:outline-none transition-all ${
-              loading ? "opacity-50 cursor-not-allowed" : "hover:bg-yellow-400"
-            }`}
-            disabled={loading}
+            onClick={handleSubmit}
+            className="w-full py-2 px-4 bg-neon-yellow text-gray-900 font-bold rounded-md shadow-md focus:outline-none hover:bg-yellow-400"
           >
-            {loading ? "Signing In..." : "Sign In"}
+            Sign In
           </button>
-          {error && (
-            <p className="text-sm text-red-400 mt-3 text-center">
-              {error.message}
-            </p>
-          )}
-        </form>
-        {user && (
-          <p className="mt-4 text-center text-gray-400">
-            Welcome back, <span className="text-neon-yellow">{user.user?.email}</span>!
-          </p>
-        )}
       </div>
     </div>
   );
