@@ -1,69 +1,88 @@
-'use client'
+"use client";
 import React, { useState } from "react";
-import {useSignInWithEmailAndPassword} from "react-firebase-hooks/auth"
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import {auth} from "@/app/firebaseConfig";
+import { useRouter } from "next/navigation";
 
 export default function SignInPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
-  
-  const handleSubmit = async () => {
-    try{
-      const res = await signInWithEmailAndPassword(email, password);
-      console.log({res});
-      // email('');
-      // password('');
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(email, password);
+      if (user) {
+        setEmail("");
+        setPassword("");
+        router.push("/Availability");
+      }
+    } catch (err) {
+      console.error("Sign-in error:", err);
     }
-   
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-900">
-      <div className="w-full max-w-md p-8 bg-gray-800 border border-gray-700 rounded-lg shadow-lg">
-        <h2 className="mb-6 text-3xl font-bold text-center text-gray-100">Sign In</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
+    <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
+      <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h1 className="text-2xl font-bold text-center text-neon-yellow mb-6">Sign In</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-300"
+              className="block text-sm font-medium text-gray-300 mb-1"
             >
               Email
             </label>
             <input
-              type="email"
               id="email"
+              type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full px-4 py-2 text-gray-100 bg-gray-900 border border-gray-700 rounded-lg focus:ring focus:ring-yellow-400 focus:outline-none"
               placeholder="Enter your email"
+              className="w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-neon-yellow"
+              required
             />
           </div>
-          <div>
+          <div className="mb-4">
             <label
               htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-300"
+              className="block text-sm font-medium text-gray-300 mb-1"
             >
               Password
             </label>
             <input
-              type="password"
               id="password"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full px-4 py-2 text-gray-100 bg-gray-900 border border-gray-700 rounded-lg focus:ring focus:ring-yellow-400 focus:outline-none"
               placeholder="Enter your password"
+              className="w-full p-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-neon-yellow"
+              required
             />
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 text-lg font-semibold text-gray-900 bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring focus:ring-yellow-500 focus:outline-none"
+            className={`w-full py-2 px-4 bg-neon-yellow text-gray-900 font-bold rounded-md shadow-md focus:outline-none transition-all ${
+              loading ? "opacity-50 cursor-not-allowed" : "hover:bg-yellow-400"
+            }`}
+            disabled={loading}
           >
-            Sign In
+            {loading ? "Signing In..." : "Sign In"}
           </button>
+          {error && (
+            <p className="text-sm text-red-400 mt-3 text-center">
+              {error.message}
+            </p>
+          )}
         </form>
+        {user && (
+          <p className="mt-4 text-center text-gray-400">
+            Welcome back, <span className="text-neon-yellow">{user.user?.email}</span>!
+          </p>
+        )}
       </div>
     </div>
   );

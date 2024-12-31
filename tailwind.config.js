@@ -14,9 +14,12 @@ module.exports = {
       '14':'30px',
       '12': '100px',
 
-    }
+    },
+    colors: {
+      "neon-yellow": "#ccff00",
+    },
   },
-      
+  darkMode: "class",    
     
       
       
