@@ -3,12 +3,17 @@ import React from 'react'
 // import "./globals.css";
 import "@/app/globals.css"
 import Link from 'next/link'
-import { useState } from "react";
+//import {whichPage, setWhichPage} from '@/app/Contexts'
+import { useContext } from "react";
 
 // export default function HeaderButton 
 
+var whichPage = 0;
+export function setWhichPage(which:number){
+    whichPage = which;
+}
+
 export const Component = () => {
-    const [whichPage, setWhichPage] = useState(0); 
     if(whichPage == 0){
         return(
             <div className="flex content-center sticky top-0 text-black">

@@ -2,8 +2,10 @@
 import React from "react";
 import  {Component} from "@/app/components/header_button";
 import { Inter } from "next/font/google";
+import { setWhichPage } from "@/app/components/header_button";
 const inter = Inter({ subsets: ["latin"] });
 export default function sub_in() {
+    setWhichPage(1);
   return(
     <body className={inter.className}>
             <div className="header" ><Component/></div>
