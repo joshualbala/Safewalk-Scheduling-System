@@ -4,8 +4,6 @@ import Availability from "./availability/page";
 
 export default function Home() {
     return (
-      <div>
        <Availability></Availability>
-      </div>
     );
   }
