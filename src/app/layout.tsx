@@ -5,6 +5,7 @@ import "./globals.css";
 import type { ReactNode } from "react";
 import  {Component} from "./components/header_button";
 import { redirect } from 'next/navigation';
+import SignInPage from "./sign-in/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,11 +16,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) 
 {
-
   return (
     <html lang="en">
         <body className={inter.className}>
         {/* <div className="header" ><Component/></div> */}
+            {/* <SignInPage></SignInPage> */}
             {children}
           {/* <footer className="footer"></footer>   */}
         </body>
