@@ -3,15 +3,20 @@ import React from "react";
 import  {Component} from "@/app/components/header_button";
 import { Inter } from "next/font/google";
 import { setWhichPage } from "@/app/components/header_button";
-const inter = Inter({ subsets: ["latin"] });
+import { useRouter } from "next/navigation";
+import { getSignIn } from "../sign-in/page";
 
 export default function availability() {
+    // const router  = useRouter();
+    // if(!getSignIn()){
+    //     router.push("/sign-in");
+    // }
     setWhichPage(3);
   return(
-     <body className={inter.className}>
-                <div className="header" ><Component/></div>
-      <main className="flex flex-col justify-between items-center min-h-screen p-24">
-      <div className="p-5 border-10 border-solid border-green-700 rounded-3xl">
+    <>
+    <div className="header" ><Component/></div>
+    <main className="flex flex-col justify-between items-center min-h-screen p-24">
+        <div className="p-5 border-10 border-solid border-green-700 rounded-3xl">
           <div className="grid grid-cols-8 grid-rows-4 gap-2.5">
 
               {/* 1 x 1 */}
@@ -172,9 +177,9 @@ export default function availability() {
                   <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
               </div>
           </div>
-      </div>
-  </main>
-  </body>
+        </div>
+    </main>
+    </>
   )
 }
 

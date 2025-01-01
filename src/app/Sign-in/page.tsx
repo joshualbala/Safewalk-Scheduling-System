@@ -5,6 +5,11 @@ import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from "@/app/firebaseConfig";
 import { useRouter } from "next/navigation";
 
+var sign = false;
+export const getSignIn = () =>{
+  return sign;
+}
+
 export default function SignInPage() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -14,12 +19,10 @@ export default function SignInPage() {
   const handleSubmit = async () => {
     try {
       const res = await signInWithEmailAndPassword(email, password);
-      console.log("EMAIL", email);
-      console.log("PASSWORD", password);
-      console.log({res})
       setEmail("");
       setPassword("");
       if(res?.user){
+        sign = true;
         router.push("/availability");
       }
       else{
@@ -42,6 +45,7 @@ export default function SignInPage() {
               Email
             </label>
             <input
+              id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -58,6 +62,7 @@ export default function SignInPage() {
               Password
             </label>
             <input
+              id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
