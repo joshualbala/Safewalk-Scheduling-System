@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebaseConfig";
 import { useRouter } from "next/navigation";
+import Image from 'next/image'; // Import the Next.js Image component
+
 
 var sign = false;
 export const getSignIn = () => {
@@ -45,7 +47,8 @@ export default function SignInPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-lg border-10 border-gray-900">
+      <Image src="/safewalk-white.png" alt="Safewalk Logo" className= "absolute"  width={screen.width-510} height={0} />
+      <div className="z-10 w-full max-w-md bg-gray-800 p-6 rounded-lg shadow-lg border-10 border-gray-900">
         <h1 className="text-2xl font-bold text-center text-neon-yellow mb-6">Sign In</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">

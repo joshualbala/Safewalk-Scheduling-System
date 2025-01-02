@@ -20,7 +20,7 @@ export const Component = () => {
         return(
             <div className="flex content-center sticky top-0 text-black">
                 <div className ="flex justify-center w-screen fixed bg-neon-yellow">
-                    <Image src="/safewalk_logo.png" alt="Safewalk Logo" className= "fixed left-2" width={85} height={50} />
+                    <Image src="/safewalk_logo.png" alt="Safewalk Logo" className= "fixed top-1 left-2" width={85} height={50} />
                     <h1 className="fixed left-32 top-3 text-5xl font-cool font-bol">Safewalk</h1>
                     <Link href= "sub-in">
                         <div className="bg-blue-700 text-2xl font-cool border-black active:bg-black hover:bg-blue-200" ><button className="w-40 h-20" onClick={(some:any) => (setWhichPage(1))}>Sub-In</button></div>
@@ -41,7 +41,7 @@ export const Component = () => {
         return(
             <div className="flex content-center sticky top-0 text-black">
                 <div className ="flex justify-center w-screen fixed bg-neon-yellow">
-                    <Image src="/safewalk_logo.png" alt="Safewalk Logo" className= "fixed left-2" width={85} height={50} />
+                    <Image src="/safewalk_logo.png" alt="Safewalk Logo" className= "fixed top-1 left-2" width={85} height={50} />
                     <h1 className="fixed left-32 top-3 text-5xl font-cool font-bol">Safewalk</h1>
                     <Link href= "sub-in">
                         <div className="bg-blue-700 text-2xl font-cool border-black hover:bg-blue-200 active:bg-black" ><button className="w-40 h-20" onClick={(some:any) => (setWhichPage(1))}>Sub-In</button></div>
@@ -62,7 +62,7 @@ export const Component = () => {
         return(
             <div className="flex content-center sticky top-0 text-black">
                 <div className ="flex justify-center w-screen fixed bg-neon-yellow">
-                    <Image src="/safewalk_logo.png" alt="Safewalk Logo" className= "fixed left-2" width={85} height={50} />
+                    <Image src="/safewalk_logo.png" alt="Safewalk Logo" className= "fixed top-1 left-2" width={85} height={50} />
                     <h1 className="fixed left-32 top-3 text-5xl font-cool font-bol">Safewalk</h1>
                     <Link href= "sub-in">
                         <div className="bg-blue-200 text-2xl font-cool border-black active:bg-black hover:bg-blue-700" ><button className="w-40 h-20" onClick={(some:any) => (setWhichPage(1))}>Sub-In</button></div>
@@ -83,7 +83,7 @@ export const Component = () => {
         return(
             <div className="flex content-center sticky top-0 text-black">
                 <div className ="flex justify-center w-screen fixed bg-neon-yellow">
-                    <Image src="/safewalk_logo.png" alt="Safewalk Logo" className= "fixed left-2" width={85} height={50} />
+                    <Image src="/safewalk_logo.png" alt="Safewalk Logo" className= "fixed top-1 left-2" width={85} height={50} />
                     <h1 className="fixed left-32 top-3 text-5xl font-cool font-bol">Safewalk</h1>
                     <Link href= "sub-in">
                         <div className="bg-blue-200 text-2xl font-cool border-black active:bg-black hover:bg-blue-700" ><button className="w-40 h-20" onClick={(some:any) => (setWhichPage(1))}>Sub-In</button></div>
