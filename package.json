@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/font": "^14.2.15",
     "@prisma/client": "5.16.1",
     "@types/firebase": "^2.4.32",
     "@vercel/postgres": "^0.9.0",

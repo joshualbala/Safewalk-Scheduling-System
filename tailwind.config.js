@@ -18,6 +18,9 @@ module.exports = {
     colors: {
       "neon-yellow": "#ccff00",
     },
+    fontFamily: {
+      "cool": ["Rubik Vinyl", "ui-sans-serif", "system-ui"]
+    }
   },
   darkMode: "class",    
   

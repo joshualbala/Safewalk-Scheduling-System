@@ -5,9 +5,9 @@ import { setWhichPage } from "@/app/components/header_button";
 import { protectRoute } from "../ProtectRoutes";
 
 export default function availability() {
-    if(!protectRoute()){
-        return null;
-    }
+    // if(!protectRoute()){
+    //     return null;
+    // }
     setWhichPage(3);
   return(
     <>

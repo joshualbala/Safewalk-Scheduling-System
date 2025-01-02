@@ -92,6 +92,17 @@ a {
   font-size: 50px;
 }
 
+@font-face {
+
+  font-family: 'Rubik Vinyl';
+
+  src: url('/fonts/RubikVinyl-Regular.ttf'); 
+
+  font-weight: normal;
+
+  font-style: normal;
+
+}
 
 
 
