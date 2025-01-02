@@ -1,14 +1,30 @@
 "use client"
-import React from "react";
+import {Dispatch, SetStateAction, useState} from "react";
 import  {Component} from "@/app/components/header_button";
 import { setWhichPage } from "@/app/components/header_button";
 import { protectRoute } from "../ProtectRoutes";
+import { usrDoc } from "../firebaseConfig";
+import AvailSelectButton from "../components/SelectButton/AvailSelectButton";
 
 export default function availability() {
-    // if(!protectRoute()){
-    //      return null;
-    // }
+    if(!protectRoute()){
+         return null;
+    }
     setWhichPage(3);
+    var initList:(string[]) = [""];
+    let [availList, setAvailList] = useState(initList);
+    async function setInit(){
+        new Promise(()=>{
+            while(!usrDoc);
+        })
+        .then(()=>{
+            if (usrDoc.availability != undefined){
+                setAvailList(usrDoc.availability)
+            }
+        })
+    }
+    //setInit()
+    
   return(
     <>
     <div className="header" ><Component/></div>
@@ -60,29 +76,29 @@ export default function availability() {
               </div>
 
               {/* 2 x 2 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift="mon9" changeList= {availList} setChangeList={setAvailList}className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 2 x 3 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift="tues9" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 2 x 4 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift="wed9" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 2 x 5 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift="thur9" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 2 x 6 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift="fri9"changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 2 x 7 */}
               <div className="bg-green-700 w-24 h-24">
@@ -100,39 +116,39 @@ export default function availability() {
               </div>
 
               {/* 3 x 2 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift ="mon10" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 3 x 3 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift="tues10" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 3 x 4 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift="wed10" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 3 x 5 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>  
+
+                  <AvailSelectButton shift="thu10" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 3 x 6 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift="fri10" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 3 x 7 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift="sat10" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 3 x 8 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift = "sun10" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 4 x 1 */}
               <div className="flex bg-green-700 w-24 h-24">
@@ -140,39 +156,39 @@ export default function availability() {
               </div>
 
               {/* 4 x 2 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift ="mon12" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 4 x 3 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift="tue12" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 4 x 4 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift="wed12"changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 4 x 5 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift="thu12" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 4 x 6 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift ="fri12" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 4 x 7 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift ="sat12" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
 
               {/* 4 x 8 */}
-              <div className="bg-green-700 w-24 h-24 ">
-                  <button className="bg-green-700 w-24 h-24 hover:bg-green-900 active:bg-white"> button </button>
-              </div>
+
+                  <AvailSelectButton shift ="sun12" changeList={availList} setChangeList={setAvailList} className="w-24 h-24 hover:bg-green-900 active:bg-white"/>
+
           </div>
         </div>
     </main>

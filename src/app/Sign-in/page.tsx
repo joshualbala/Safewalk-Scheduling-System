@@ -4,6 +4,7 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebaseConfig";
 import { useRouter } from "next/navigation";
 import Image from 'next/image'; // Import the Next.js Image component
+import { onStartup } from "@/app/firebaseConfig";
 
 
 var sign = false;
@@ -23,6 +24,7 @@ export default function SignInPage() {
     try {
       const res = await signInWithEmailAndPassword(email, password);
       if (res?.user) {
+        onStartup()
         setEmail("");
         setPassword("");
         setWrongAddr(null);
@@ -30,7 +32,7 @@ export default function SignInPage() {
         router.push("/availability");
       } else {
         setWrongAddr(
-          <div className="p-3 bottom-32 bg-red-600 rounded-md">
+          <div id="tues9" className="p-3 bottom-32 bg-red-600 rounded-md">
             <h1>Username or password is incorrect</h1>
           </div>
         );
