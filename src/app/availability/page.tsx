@@ -11,6 +11,20 @@ export default function availability() {
          return null;
     }
     setWhichPage(3);
+    var initList:(string[]) = [""];
+    let [availList, setAvailList] = useState(initList);
+    async function setInit(){
+        new Promise(()=>{
+            while(!usrDoc);
+        })
+        .then(()=>{
+            if (usrDoc.availability != undefined){
+                setAvailList(usrDoc.availability)
+            }
+        })
+    }
+    //setInit()
+    
     const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
 
 
