@@ -11,7 +11,7 @@ export default function sub_in() {
     return(
     <>    
         <div className="header" ><Component/></div>
-        <main className="flex flex-col justify-between items-center min-h-screen p-24">
+        <main className="flex flex-col justify-between items-center min-h-screen p-24 bg-gray-900">
             <div className="p-5 border-10 border-solid border-blue-700 rounded-3xl">
                 <div className="grid grid-cols-8 grid-rows-4 gap-2.5">
                     {/* 1 x 1 */}
