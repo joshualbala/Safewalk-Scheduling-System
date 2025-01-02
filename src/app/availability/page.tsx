@@ -1,16 +1,13 @@
 "use client"
 import React from "react";
 import  {Component} from "@/app/components/header_button";
-import { Inter } from "next/font/google";
 import { setWhichPage } from "@/app/components/header_button";
-import { useRouter } from "next/navigation";
-import { getSignIn } from "../sign-in/page";
+import { protectRoute } from "../ProtectRoutes";
 
 export default function availability() {
-    // const router  = useRouter();
-    // if(!getSignIn()){
-    //     router.push("/sign-in");
-    // }
+    if(!protectRoute()){
+        return null;
+    }
     setWhichPage(3);
   return(
     <>
