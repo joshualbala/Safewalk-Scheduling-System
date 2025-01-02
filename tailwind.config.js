@@ -12,15 +12,28 @@ module.exports = {
     },
     lineHeight:{
       '14':'30px',
-      '12': '100px',
+      '75':'75px',
+      '100': '100px',
 
+    },
+    width:{
+      '18':'70px'
+    },
+    height:{
+      '18':'70px'
+    },
+    minWidth:{
+      '550':'550px'
     },
     colors: {
       "neon-yellow": "#ccff00",
     },
     fontFamily: {
       "cool": ["Rubik Vinyl", "ui-sans-serif", "system-ui"]
-    }
+    },
+    screens:{
+      "ph" : "840px"
+    },
   },
   darkMode: "class",    
   

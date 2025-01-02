@@ -17,7 +17,7 @@ export default function SignInPage() {
   const [signInWithEmailAndPassword, user, error] =
     useSignInWithEmailAndPassword(auth);
   const [wrongAddr, setWrongAddr] = useState<JSX.Element | null>(null);
-  const [screenWidth, setScreenWidth] = useState<number>(0); // State for screen width
+  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth); // State for screen width
   const router = useRouter();
 
   useEffect(() => {
