@@ -1,13 +1,15 @@
 "use client"
-import React, { useState, useEffect } from "react";
+import {Dispatch, SetStateAction, useState, useEffect } from "react";
 import  {Component} from "@/app/components/header_button";
 import { setWhichPage } from "@/app/components/header_button";
 import { protectRoute } from "../ProtectRoutes";
+import { usrDoc } from "../firebaseConfig";
+import AvailSelectButton from "../components/SelectButton/AvailSelectButton";
 
 export default function availability() {
-    // if(!protectRoute()){
-    //      return null;
-    // }
+    if(!protectRoute()){
+         return null;
+    }
     setWhichPage(3);
     const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
 
