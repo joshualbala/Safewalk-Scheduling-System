@@ -4,9 +4,9 @@ import  {Component} from "@/app/components/header_button";
 import {protectRoute } from "../ProtectRoutes";
 
 export default function sub_in() {
-   if(!protectRoute()){
-        return null;
-    }
+//    if(!protectRoute()){
+//         return null;
+//     }
 
     return(
     <>    
