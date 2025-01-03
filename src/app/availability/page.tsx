@@ -7,21 +7,22 @@ import { usrDoc } from "../firebaseConfig";
 import AvailSelectButton from "../components/SelectButton/AvailSelectButton";
 
 export default function availability() {
-     if(!protectRoute()){
-          return null;
-     }
+    //  if(!protectRoute()){
+    //       return null;
+    //  }
     setWhichPage(3);
     var initList:(string[]) = [""];
     let [availList, setAvailList] = useState(initList);
     async function setInit(){
+        if(usrDoc){
         useEffect(() => {
-            
             usrDoc.then((newDoc) => {
                 if (newDoc.availability){
                     setAvailList(newDoc.availability)
                 }
             })
         }, [])
+    }
     }
     setInit()
     const [childBoolean, setChildBoolean] = useState(false);
@@ -31,9 +32,7 @@ export default function availability() {
     useEffect(() => {
         if (childBoolean) {
             setSubmit(
-                <div className="p-3 bottom-32 bg-green-600 rounded-md">
-                    <button>Username or password is incorrect</button>
-                </div>
+                <button>Submit</button>           
             );
         }
     }, [childBoolean]);
@@ -179,7 +178,7 @@ export default function availability() {
                 </div>
                 </div>
                 {submitButton && (
-                <div className="absolute bottom-10 z-20 bg-red-600 p-3 rounded-md text-white">
+                <div className="sticky bottom-10 bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white">
                     {submitButton}
                 </div>
                 )}
