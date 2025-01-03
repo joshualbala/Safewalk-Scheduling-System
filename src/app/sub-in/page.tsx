@@ -32,37 +32,37 @@ const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
     
                     {/* 1 x 2 */}
                     <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Monday</p>
+                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Sunday</p>
                     </div>
     
                     {/* 1 x 3 */}
                     <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Tuesday</p>
+                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Monday</p>
                     </div>
     
                     {/* 1 x 4 */}
                     <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Wednesday</p>
+                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Tuesday</p>
                     </div>
     
                     {/* 1 x 5 */}
                     <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Thursday</p>
+                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Wednesday</p>
                     </div>
     
                     {/* 1 x 6 */}
                     <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Friday</p>
+                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Thursday</p>
                     </div>
     
                     {/* 1 x 7 */}
                     <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Saturday</p>
+                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Friday</p>
                     </div>
     
                     {/* 1 x 8 */}
                     <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Sunday</p>
+                        <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Saturday</p>
                     </div>
     
                     {/* 2 x 1 */}
@@ -174,7 +174,7 @@ const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
                         </div>
                         {/* 2 x 1 */}
                         <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Monday</p>
+                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Sunday</p>
                         </div>
                         {/* 2 x 2 */}
                         <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
@@ -184,7 +184,7 @@ const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
                         <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
                          {/* 3 x 1 */}
                         <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Tuesday</p>
+                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Monday</p>
                         </div>
                         {/* 3 x 2 */}
                         <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
@@ -194,7 +194,7 @@ const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
                         <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
                         {/* 4 x 1 */}
                         <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Wednesday</p>
+                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Tuesday</p>
                         </div>
                         {/* 4 x 2 */}
                         <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
@@ -204,7 +204,7 @@ const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
                         <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
                         {/* 5 x 1 */}
                         <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Thursday</p>
+                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Wednesday</p>
                         </div>
                         {/* 5 x 2 */}
                         <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
@@ -214,17 +214,17 @@ const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
                         <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
                         {/* 6 x 1 */}
                         <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Friday</p>
+                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Thursday</p>
                         </div>
                         {/* 6 x 2 */}
-                        <div className="bg-gray-500 w-18 h-18 lg:w-24 lg:h-24"></div>
+                        <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
                         {/* 6 x 3 */}
                         <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
                         {/* 6 x 4 */}
                         <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
                         {/* 7 x 1 */}
                         <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Saturday</p>
+                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Friday</p>
                         </div>
                         {/* 7 x 2 */}
                         <div className="bg-gray-500 w-18 h-18 lg:w-24 lg:h-24"></div>
@@ -234,10 +234,10 @@ const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
                         <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
                         {/* 8 x 1 */}
                         <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Sunday</p>
+                            <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Saturday</p>
                         </div>
                         {/* 8 x 2 */}
-                        <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
+                        <div className="bg-gray-500 w-18 h-18 lg:w-24 lg:h-24"></div>
                         {/* 8 x 3 */}
                         <button className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"> button </button>
                         {/* 8 x 4 */}
