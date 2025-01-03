@@ -7,9 +7,9 @@ import { usrDoc } from "../firebaseConfig";
 import AvailSelectButton from "../components/SelectButton/AvailSelectButton";
 
 export default function availability() {
-    // if(!protectRoute()){
-    //      return null;
-    // }
+     if(!protectRoute()){
+          return null;
+     }
     setWhichPage(3);
     var initList:(string[]) = [""];
     let [availList, setAvailList] = useState(initList);
@@ -19,11 +19,13 @@ export default function availability() {
         })
         .then(()=>{
             if (usrDoc.availability != undefined){
+                
                 setAvailList(usrDoc.availability)
             }
+            
         })
     }
-    //setInit()
+    setInit()
     
     const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
 

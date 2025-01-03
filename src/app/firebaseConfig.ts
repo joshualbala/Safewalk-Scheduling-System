@@ -1,9 +1,11 @@
 // Import the functions you need from the SDKs you need
+import { unsubscribe } from "diagnostics_channel";
 import {initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, 
   collection, onSnapshot, doc, getDoc, getDocs, //getting data 
-query, where, updateDoc} //
+query, where, updateDoc,
+getDocFromServer} //
  from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -36,7 +38,7 @@ interface UserInfo {
   temp_shifts?:string[],
 }
 var curUsr = auth.currentUser
-var usrDocRef;
+
 var usrDoc:UserInfo;
 
 
@@ -65,23 +67,29 @@ var shifts:Map<string, number> = new Map(
 // 
 var openShifts:string[] = [];
 export async function onStartup(){
-  curUsr = auth.currentUser
-  if (curUsr){
-    usrDocRef = doc(db, 'Users', curUsr.uid)
-    console.log(usrDocRef)
-    console.log("hello")
-   
-    getDoc(usrDocRef)
-     .then ((doc) => {usrDoc = doc.data() as UserInfo
-       console.log(doc.data())
-     });
-   
+  console.log(usrDoc);
+  onAuthStateChanged(auth, (user)=>{
+  
+  curUsr = user
+  if (user && !usrDoc){
+    var usrDocRef = doc(db, 'Users', user.uid)
+    try{
+        getDoc(usrDocRef)
+        .then((docSnap) => {
+          usrDoc = docSnap.data() as UserInfo;
+        }
+      )
+    }catch (error){
+      console.log("server call failed")
+    }
     
-    
-    
+  }else if (!user){
+    console.log("what the fuck is happening")
   }
+  })
+  
 
-  getDocs(colRef)
+  /*getDocs(colRef)
   .then((snapshot) => {
     let tempShift = new Map(shifts)
     snapshot.docs.forEach(doc=>
@@ -104,7 +112,7 @@ export async function onStartup(){
       }
     })
 
-  })
+  })*/
 }
 onSnapshot(colRef, (snapshot)=>{
   let tempShift = new Map(shifts)

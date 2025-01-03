@@ -29,13 +29,12 @@ export default function SignInPage() {
     window.addEventListener("resize", updateScreenWidth);
     return () => window.removeEventListener("resize", updateScreenWidth);
   }, []);
-
+  onStartup()
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const res = await signInWithEmailAndPassword(email, password);
-      if (res?.user) {
-        onStartup()
+      if (res?.user) {       
         setEmail("");
         setPassword("");
         setWrongAddr(null);
