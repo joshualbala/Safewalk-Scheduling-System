@@ -5,6 +5,8 @@ export interface SelectButtonProps {
     className?:string,
     changeList:string[] 
     setChangeList: Dispatch<SetStateAction<string[]> >
+    sendBoolean: (value: boolean) => void;
+
 }
 export interface InButtonProps extends OutButtonProps{
     openShifts:string[]

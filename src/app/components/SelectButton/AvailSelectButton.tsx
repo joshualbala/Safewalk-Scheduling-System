@@ -2,12 +2,8 @@ import { SelectButtonProps } from "./SelectButton.types";
 import { useState } from "react";
 
 
-interface ChildProps{
-    sendBoolean: (value: boolean) => void;
-}
 
-type CombinedProps = SelectButtonProps & ChildProps
-const AvailSelectButton: React.FC<CombinedProps> = (props) => {
+const AvailSelectButton: React.FC<SelectButtonProps> = (props) => {
     const [submit, setSubmit] = useState(false);
     function handleClick(){
         console.log(props.changeList)
