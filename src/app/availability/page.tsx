@@ -14,16 +14,15 @@ export default function availability() {
     var initList:(string[]) = [""];
     let [availList, setAvailList] = useState(initList);
     async function setInit(){
-        new Promise(()=>{
-            while(!usrDoc);
-        })
-        .then(()=>{
-            if (usrDoc.availability != undefined){
-                
-                setAvailList(usrDoc.availability)
-            }
-            
-        })
+        useEffect(() => {
+            usrDoc.then((newDoc) => {
+                if (newDoc.availability){
+                    setAvailList(newDoc.availability)
+                    console.log(newDoc)
+                }
+            })
+        }, [availList, setAvailList, usrDoc])
+        
     }
     setInit()
     
