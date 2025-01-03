@@ -7,7 +7,7 @@ export default function sub_in() {
 //    if(!protectRoute()){
 //         return null;
 //     }
-const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+const [screenWidth, setScreenWidth] = useState<number>(1000);
 
 
     useEffect(() => {
@@ -86,11 +86,11 @@ const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
                         <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
     
                     {/* 2 x 7 */}
-                    <div className="bg-gray-500 w-18 h-18 lg:w-24 lg:h-24"></div>
+                    <div className="bg-gray-900 border-2 border-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                 
     
                     {/* 2 x 8 */}
-                        <div className="bg-gray-500 w-18 h-18 lg:w-24 lg:h-24"></div>
+                    <div className="bg-gray-900 border-2 border-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
     
                     {/* 3 x 1 */}
                     <div className="flex bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
@@ -155,7 +155,7 @@ const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
         <>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
             <div className="header" ><Component/></div>
-            <main className="flex flex-col justify-between items-center min-h-screen p-24 bg-gray-900 min-w-550">
+            <main className="flex flex-col justify-between items-center min-h-screen p-24 bg-gray-900 min-w-540">
                 <div className="p-5 min-w-[550px] border-10 border-solid border-red-700 rounded-3xl">
                   <div className="grid grid-cols-4 grid-rows-8 gap-2">
                         {/* 1 x 1 */}
@@ -227,7 +227,7 @@ const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Friday</p>
                         </div>
                         {/* 7 x 2 */}
-                        <div className="bg-gray-500 w-18 h-18 lg:w-24 lg:h-24"></div>
+                        <div className="bg-gray-900 border-2 border-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                         {/* 7 x 3 */}
                         <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
                         {/* 7 x 4 */}
@@ -237,7 +237,7 @@ const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Saturday</p>
                         </div>
                         {/* 8 x 2 */}
-                        <div className="bg-gray-500 w-18 h-18 lg:w-24 lg:h-24"></div>
+                        <div className="bg-gray-900 border-2 border-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                         {/* 8 x 3 */}
                         <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
                         {/* 8 x 4 */}

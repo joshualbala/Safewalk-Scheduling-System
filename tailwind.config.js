@@ -17,13 +17,14 @@ module.exports = {
 
     },
     width:{
-      '18':'70px'
+      '18':'70px',
+      '50':"180px",
     },
     height:{
       '18':'70px'
     },
     minWidth:{
-      '550':'550px'
+      '540':'540px'
     },
     colors: {
       "neon-yellow": "#ccff00",
@@ -31,8 +32,12 @@ module.exports = {
     fontFamily: {
       "cool": ["Rubik Vinyl", "ui-sans-serif", "system-ui"]
     },
+    fontSize:{
+      "rm": "0px"
+    },
     screens:{
-      "ph" : "840px"
+      '730':'730px',
+      '1310':'1310px',
     },
   },
   darkMode: "class",    
