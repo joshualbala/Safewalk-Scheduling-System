@@ -7,18 +7,13 @@ import { useRouter } from "next/navigation";
 import Image from 'next/image'; // Import the Next.js Image component
 import { onStartup } from "@/app/firebaseConfig";
 
-let sign = false;
-export const getSignIn = () => {
-  return sign;
-};
-
 export default function SignInPage() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [signInWithEmailAndPassword, user, error] =
     useSignInWithEmailAndPassword(auth);
   const [wrongAddr, setWrongAddr] = useState<JSX.Element | null>(null);
-  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth); // State for screen width
+  const [screenWidth, setScreenWidth] = useState<number>(1000); // State for screen width
   const router = useRouter();
 
   useEffect(() => {
@@ -39,7 +34,6 @@ export default function SignInPage() {
         setEmail("");
         setPassword("");
         setWrongAddr(null);
-        sign = true;
         router.push("/availability");
       } else {
         setWrongAddr(

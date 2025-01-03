@@ -22,10 +22,24 @@ export default function availability() {
                 }
             })
         }, [])
-        
     }
     setInit()
-    
+    const [childBoolean, setChildBoolean] = useState(false);
+
+    const [submitButton, setSubmit] = useState<JSX.Element | null>(null);
+
+    useEffect(() => {
+        if (childBoolean) {
+            setSubmit(
+                <div className="p-3 bottom-32 bg-green-600 rounded-md">
+                    <button>Username or password is incorrect</button>
+                </div>
+            );
+        }
+    }, [childBoolean]);
+
+    const handleCallBack = (value: boolean) => setChildBoolean(value);
+   
     const [screenWidth, setScreenWidth] = useState<number>(1000);
 
     useEffect(() => {
@@ -89,19 +103,19 @@ export default function availability() {
                     </div>
     
                     {/* 2 x 2 */}
-                        <AvailSelectButton shift="sun9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="sun9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 2 x 3 */}
-                        <AvailSelectButton shift="mon9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="mon9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 2 x 4 */}
-                        <AvailSelectButton shift="tue9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="tue9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 2 x 5 */}
-                        <AvailSelectButton shift="wed9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="wed9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 2 x 6 */}
-                        <AvailSelectButton shift="thu9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="thu9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 2 x 7 */}
                     <div className="bg-gray-900 border-2 border-green-700 w-18 h-18 lg:w-24 lg:h-24"></div>
@@ -116,26 +130,26 @@ export default function availability() {
                     </div>
     
                     {/* 3 x 2 */}
-                        <AvailSelectButton shift="sun10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="sun10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 3 x 3 */}
-                        <AvailSelectButton shift="mon10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="mon10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 3 x 4 */}
-                        <AvailSelectButton shift="tue10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="tue10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 3 x 5 */}
-                        <AvailSelectButton shift="wed10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="wed10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
             
     
                     {/* 3 x 6 */}
-                        <AvailSelectButton shift="thu10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="thu10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 3 x 7 */}
-                        <AvailSelectButton shift="fri10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="fri10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 3 x 8 */}
-                        <AvailSelectButton shift="sat10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="sat10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 4 x 1 */}
                     <div className="flex bg-green-700 w-18 h-18 lg:w-24 lg:h-24">
@@ -143,27 +157,32 @@ export default function availability() {
                     </div>
     
                     {/* 4 x 2 */}
-                        <AvailSelectButton shift="sun12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="sun12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 4 x 3 */}
-                        <AvailSelectButton shift="mon12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="mon12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 4 x 4 */}
-                        <AvailSelectButton shift="tue12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="tue12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 4 x 5 */}
-                        <AvailSelectButton shift="wed12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="wed12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 4 x 6 */}
-                        <AvailSelectButton shift="thu12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="thu12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 4 x 7 */}
-                        <AvailSelectButton shift="fri12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="fri12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
     
                     {/* 4 x 8 */}
-                        <AvailSelectButton shift="sat12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="sat12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                 </div>
                 </div>
+                {submitButton && (
+                <div className="absolute bottom-10 z-20 bg-red-600 p-3 rounded-md text-white">
+                    {submitButton}
+                </div>
+                )}
             </main>
             </>
         )
@@ -195,51 +214,51 @@ export default function availability() {
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Sunday</p>
                         </div>
                         {/* 2 x 2 */}
-                        <AvailSelectButton shift="sun9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="sun9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 2 x 3 */}
-                        <AvailSelectButton shift="sun10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="sun10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 2 x 4 */}
-                        <AvailSelectButton shift="sun12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="sun12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                          {/* 3 x 1 */}
                         <div className="bg-green-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Monday</p>
                         </div>
                         {/* 3 x 2 */}
-                        <AvailSelectButton shift="mon9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="mon9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 3 x 3 */}
-                        <AvailSelectButton shift="mon10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="mon10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 3 x 4 */}
-                        <AvailSelectButton shift="mon12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="mon12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 4 x 1 */}
                         <div className="bg-green-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Tuesday</p>
                         </div>
                         {/* 4 x 2 */}
-                        <AvailSelectButton shift="tue9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="tue9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 4 x 3 */}
-                        <AvailSelectButton shift="tue10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="tue10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 4 x 4 */}
-                        <AvailSelectButton shift="tue12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="tue12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 5 x 1 */}
                         <div className="bg-green-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Wednesday</p>
                         </div>
                         {/* 5 x 2 */}
-                        <AvailSelectButton shift="wed9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="wed9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 5 x 3 */}
-                        <AvailSelectButton shift="wed10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="wed10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 5 x 4 */}
-                        <AvailSelectButton shift="wed12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="wed12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 6 x 1 */}
                         <div className="bg-green-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Thursday</p>
                         </div>
                         {/* 6 x 2 */}
-                        <AvailSelectButton shift="thu10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="thu10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 6 x 3 */}
-                        <AvailSelectButton shift="thu10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="thu10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 6 x 4 */}
-                        <AvailSelectButton shift="thu12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="thu12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 7 x 1 */}
                         <div className="bg-green-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Friday</p>
@@ -247,9 +266,9 @@ export default function availability() {
                         {/* 7 x 2 */}
                         <div className="bg-gray-900 border-2 border-green-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                         {/* 7 x 3 */}
-                        <AvailSelectButton shift="fri10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="fri10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 7 x 4 */}
-                        <AvailSelectButton shift="fri12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="fri12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 8 x 1 */}
                         <div className="bg-green-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Saturday</p>
@@ -257,9 +276,9 @@ export default function availability() {
                         {/* 8 x 2 */}
                         <div className="bg-gray-900 border-2 border-green-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                         {/* 8 x 3 */}
-                        <AvailSelectButton shift="sat10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="sat10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 8 x 4 */}
-                        <AvailSelectButton shift="sat12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="sat12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                     </div>
             </div>
             </main>
