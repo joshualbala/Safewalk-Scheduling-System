@@ -25,8 +25,7 @@ export default function availability() {
     }
     //setInit()
     
-    const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
-
+    const [screenWidth, setScreenWidth] = useState<number>(1000);
 
     useEffect(() => {
     const updateScreenWidth = () => {
@@ -173,8 +172,8 @@ export default function availability() {
         <>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
             <div className="header" ><Component/></div>
-            <main className="flex flex-col justify-between items-center min-h-screen p-24 bg-gray-900 min-w-550">
-                <div className="p-5 min-w-[550px] border-10 border-solid border-green-700 rounded-3xl">
+            <main className="flex flex-col justify-between items-center min-h-screen p-24 bg-gray-900 min-w-540">
+                <div className="p-5 min-w-[540px] border-10 border-solid border-green-700 rounded-3xl">
                   <div className="grid grid-cols-4 grid-rows-8 gap-2">
                         {/* 1 x 1 */}
                         <div className="bg-green-700 w-18 h-18 lg:w-24 lg:h-24"></div>
