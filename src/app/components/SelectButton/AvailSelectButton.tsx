@@ -4,14 +4,13 @@ import { SelectButtonProps } from "./SelectButton.types";
 const AvailSelectButton: React.FC<SelectButtonProps> = (props:SelectButtonProps) => {
 
     function handleClick(){
+        console.log(props.changeList)
         if(props.changeList && props.changeList.includes(props.shift)){
             let temp = props.changeList.filter((item) => item != props.shift)
             props.setChangeList(temp)
-            console.log(props)
         } else if (props.changeList){
             let temp = [...props.changeList, props.shift]
             props.setChangeList(temp)
-            console.log(props)
         }
         
     }

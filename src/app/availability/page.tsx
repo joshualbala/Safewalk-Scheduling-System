@@ -15,13 +15,13 @@ export default function availability() {
     let [availList, setAvailList] = useState(initList);
     async function setInit(){
         useEffect(() => {
+            
             usrDoc.then((newDoc) => {
                 if (newDoc.availability){
                     setAvailList(newDoc.availability)
-                    console.log(newDoc)
                 }
             })
-        }, [availList, setAvailList, usrDoc])
+        }, [])
         
     }
     setInit()
