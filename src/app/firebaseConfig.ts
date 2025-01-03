@@ -43,29 +43,29 @@ var usrDoc:Promise<UserInfo>;
 
 
 
-// var shifts:Map<string, number> = new Map(
-//   [["mon9",4],
-//   ["tue9",4],
-//   ["wed9",4],
-//   ["thu9",4],
-//   ["fri9",4],
-//   ["mon10",4],
-//   ["tue10",4],
-//   ["wed10",4],
-//   ["thu10",4],
-//   ["fri10",4],
-//   ["sat10",4],
-//   ["sun10",4],
-//   ["mon12",4],
-//   ["tue12",4],
-//   ["wed12",4],
-//   ["thu12",4],
-//   ["fri12",4],
-//   ["sat12",4],
-//   ["sun12",4]]
-// )
-// 
-var openShifts:string[] = [];
+var shifts:Map<string, number> = new Map(
+  [["mon9",4],
+  ["tue9",4],
+  ["wed9",4],
+  ["thu9",4],
+  ["sun9",4],
+  ["mon10",4],
+  ["tue10",4],
+  ["wed10",4],
+  ["thu10",4],
+  ["fri10",4],
+  ["sat10",4],
+  ["sun10",4],
+  ["mon12",4],
+  ["tue12",4],
+  ["wed12",4],
+  ["thu12",4],
+  ["fri12",4],
+  ["sat12",4],
+  ["sun12",4]]
+)
+
+var openShifts:Promise<string[]>;
 export async function onStartup(){
   onAuthStateChanged(auth, (user)=>{
   
@@ -91,7 +91,7 @@ export async function onStartup(){
   })
   
 
-  /*getDocs(colRef)
+  openShifts = getDocs(colRef)
   .then((snapshot) => {
     let tempShift = new Map(shifts)
     snapshot.docs.forEach(doc=>
@@ -108,35 +108,14 @@ export async function onStartup(){
     }
   }
     )
+    var ret:string[]= [];
     tempShift.forEach((value, key) =>{
       if (value != 0){
-        openShifts.push(key)
+        ret.push(key)
       }
     })
-
-  })*/
+    return ret;
+  })
 }
-// onSnapshot(colRef, (snapshot)=>{
-//   let tempShift = new Map(shifts)
-//   snapshot.docs.forEach(doc=>
-//   {
-//     var curDock:UserInfo = doc.data() as UserInfo
-//     if (curDock.temp_shifts){
-//     curDock.temp_shifts.forEach(shift => {
-//       var curLeft = tempShift.get(shift)
-//       if (curLeft){
-//         tempShift.set(shift, curLeft - 1)
-//       }
-      
-//     })
-//   }
-// }
-//   )
-//   tempShift.forEach((value, key) =>{
-//     if (value != 0){
-//       openShifts.push(key)
-//     }
-//   })
-// })
 
 export {app, auth, usrDoc, openShifts}

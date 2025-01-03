@@ -1,15 +1,31 @@
 'use client'
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import  {Component} from "@/app/components/header_button";
 import {protectRoute } from "../ProtectRoutes";
+import { usrDoc } from "../firebaseConfig";
+import OutSelectButton from "../components/SelectButton/OutSelectButton";
 
 export default function sub_in() {
-//    if(!protectRoute()){
-//         return null;
-//     }
-const [screenWidth, setScreenWidth] = useState<number>(1000);
-
-
+   if(!protectRoute()){
+        return null;
+    }
+    const [screenWidth, setScreenWidth] = useState<number>(1000);
+    var initList:(string[]) = [];
+    let [outList, setOutList] = useState(initList);
+    let prevSubbed = useRef([""])
+    async function setInit(){
+        useEffect(() => {
+            usrDoc.then((newDoc) => {
+                if (newDoc.temp_shifts){
+                    setOutList(newDoc.temp_shifts)
+                    prevSubbed.current = newDoc.temp_shifts
+                }
+            })
+        }, [])
+        
+        
+    }
+    setInit()
     useEffect(() => {
     const updateScreenWidth = () => {
       setScreenWidth(window.innerWidth);
@@ -71,26 +87,26 @@ const [screenWidth, setScreenWidth] = useState<number>(1000);
                     </div>
     
                     {/* 2 x 2 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="sun9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 2 x 3 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="mon9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 2 x 4 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="tue9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 2 x 5 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="wed9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 2 x 6 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="thu9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 2 x 7 */}
                     <div className="bg-gray-900 border-2 border-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                 
     
                     {/* 2 x 8 */}
-                    <div className="bg-gray-900 border-2 border-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
+                        <div className="bg-gray-900 border-2 border-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
     
                     {/* 3 x 1 */}
                     <div className="flex bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
@@ -98,26 +114,26 @@ const [screenWidth, setScreenWidth] = useState<number>(1000);
                     </div>
     
                     {/* 3 x 2 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="sun10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 3 x 3 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="mon10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 3 x 4 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="tue10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 3 x 5 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="wed10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
             
     
                     {/* 3 x 6 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="thu10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 3 x 7 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="fri10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 3 x 8 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="sat10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 1 */}
                     <div className="flex bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
@@ -125,25 +141,25 @@ const [screenWidth, setScreenWidth] = useState<number>(1000);
                     </div>
     
                     {/* 4 x 2 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="sun12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 3 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="mon12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 4 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="tue12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 5 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="wed12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 6 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="thu12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 7 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="fri12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 8 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="sat12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                 </div>
                 </div>
             </main>
@@ -156,7 +172,7 @@ const [screenWidth, setScreenWidth] = useState<number>(1000);
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
             <div className="header" ><Component/></div>
             <main className="flex flex-col justify-between items-center min-h-screen p-24 bg-gray-900 min-w-540">
-                <div className="p-5 min-w-[550px] border-10 border-solid border-red-700 rounded-3xl">
+                <div className="p-5 min-w-[540px] border-10 border-solid border-red-700 rounded-3xl">
                   <div className="grid grid-cols-4 grid-rows-8 gap-2">
                         {/* 1 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
@@ -177,51 +193,51 @@ const [screenWidth, setScreenWidth] = useState<number>(1000);
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Sunday</p>
                         </div>
                         {/* 2 x 2 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="sun9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 2 x 3 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="sun10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 2 x 4 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="sun12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                          {/* 3 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Monday</p>
                         </div>
                         {/* 3 x 2 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="mon9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 3 x 3 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="mon10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 3 x 4 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="mon12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 4 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Tuesday</p>
                         </div>
                         {/* 4 x 2 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="tue9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 4 x 3 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="tue10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 4 x 4 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="tue12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 5 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Wednesday</p>
                         </div>
                         {/* 5 x 2 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="wed9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 5 x 3 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="wed10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 5 x 4 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="wed12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 6 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Thursday</p>
                         </div>
                         {/* 6 x 2 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="thu10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 6 x 3 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="thu10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 6 x 4 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="thu12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 7 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Friday</p>
@@ -229,9 +245,9 @@ const [screenWidth, setScreenWidth] = useState<number>(1000);
                         {/* 7 x 2 */}
                         <div className="bg-gray-900 border-2 border-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                         {/* 7 x 3 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="fri10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 7 x 4 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="fri12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 8 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Saturday</p>
@@ -239,9 +255,9 @@ const [screenWidth, setScreenWidth] = useState<number>(1000);
                         {/* 8 x 2 */}
                         <div className="bg-gray-900 border-2 border-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                         {/* 8 x 3 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="sat10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 8 x 4 */}
-                        <button className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"> button </button>
+                        <OutSelectButton prevSubbed= {prevSubbed} shift="sat12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                     </div>
             </div>
             </main>
@@ -249,3 +265,4 @@ const [screenWidth, setScreenWidth] = useState<number>(1000);
         )
     }
 }
+
