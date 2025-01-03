@@ -26,6 +26,19 @@ export default function sub_in() {
         
     }
     setInit()
+    const [childBoolean, setChildBoolean] = useState(false);
+
+    const [submitButton, setSubmit] = useState<JSX.Element | null>(null);
+
+    useEffect(() => {
+        if (childBoolean) {
+            setSubmit(
+                <button>Submit</button>           
+            );
+        }
+    }, [childBoolean]);
+
+    const handleCallBack = (value: boolean) => setChildBoolean(value);
     useEffect(() => {
     const updateScreenWidth = () => {
       setScreenWidth(window.innerWidth);
@@ -87,19 +100,19 @@ export default function sub_in() {
                     </div>
     
                     {/* 2 x 2 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="sun9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="sun9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 2 x 3 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="mon9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="mon9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 2 x 4 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="tue9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="tue9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 2 x 5 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="wed9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="wed9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 2 x 6 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="thu9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="thu9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 2 x 7 */}
                     <div className="bg-gray-900 border-2 border-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
@@ -114,26 +127,26 @@ export default function sub_in() {
                     </div>
     
                     {/* 3 x 2 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="sun10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="sun10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 3 x 3 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="mon10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="mon10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 3 x 4 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="tue10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="tue10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 3 x 5 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="wed10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="wed10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
             
     
                     {/* 3 x 6 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="thu10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="thu10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 3 x 7 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="fri10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="fri10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 3 x 8 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="sat10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="sat10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 1 */}
                     <div className="flex bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
@@ -141,27 +154,32 @@ export default function sub_in() {
                     </div>
     
                     {/* 4 x 2 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="sun12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="sun12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 3 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="mon12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="mon12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 4 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="tue12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="tue12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 5 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="wed12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="wed12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 6 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="thu12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="thu12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 7 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="fri12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="fri12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
     
                     {/* 4 x 8 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="sat12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="sat12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                 </div>
                 </div>
+                {submitButton && (
+                <div className="sticky bottom-10 bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-red-600 hover:bg-red-900 active:bg-white">
+                    {submitButton}
+                </div>
+                )}
             </main>
             </>
         )
@@ -193,51 +211,51 @@ export default function sub_in() {
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Sunday</p>
                         </div>
                         {/* 2 x 2 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="sun9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="sun9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 2 x 3 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="sun10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="sun10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 2 x 4 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="sun12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="sun12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                          {/* 3 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Monday</p>
                         </div>
                         {/* 3 x 2 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="mon9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="mon9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 3 x 3 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="mon10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="mon10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 3 x 4 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="mon12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="mon12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 4 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Tuesday</p>
                         </div>
                         {/* 4 x 2 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="tue9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="tue9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 4 x 3 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="tue10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="tue10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 4 x 4 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="tue12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="tue12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 5 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Wednesday</p>
                         </div>
                         {/* 5 x 2 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="wed9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="wed9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 5 x 3 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="wed10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="wed10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 5 x 4 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="wed12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="wed12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 6 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Thursday</p>
                         </div>
                         {/* 6 x 2 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="thu10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="thu10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 6 x 3 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="thu10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="thu10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 6 x 4 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="thu12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="thu12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 7 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Friday</p>
@@ -245,9 +263,9 @@ export default function sub_in() {
                         {/* 7 x 2 */}
                         <div className="bg-gray-900 border-2 border-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                         {/* 7 x 3 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="fri10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="fri10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 7 x 4 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="fri12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="fri12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 8 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Saturday</p>
@@ -255,9 +273,9 @@ export default function sub_in() {
                         {/* 8 x 2 */}
                         <div className="bg-gray-900 border-2 border-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                         {/* 8 x 3 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="sat10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="sat10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 8 x 4 */}
-                        <OutSelectButton prevSubbed= {prevSubbed} shift="sat12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="sat12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                     </div>
             </div>
             </main>

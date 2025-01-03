@@ -11,6 +11,7 @@ const OutSelectButton: React.FC<OutButtonProps> = (props:OutButtonProps) => {
             let temp = [...props.changeList, props.shift]
             props.setChangeList(temp)
         }
+        props.sendBoolean(true);
     }
     if (props.changeList.includes(props.shift)){
         return (

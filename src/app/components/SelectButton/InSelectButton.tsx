@@ -11,7 +11,7 @@ const InSelectButton: React.FC<InButtonProps> = (props:InButtonProps) => {
             let temp = [...props.changeList, props.shift]
             props.setChangeList(temp)
         }
-        
+        props.sendBoolean(true);
     }
     if ((props.changeList.includes(props.shift)) || (!props.openShifts.includes(props.shift))){
         return (

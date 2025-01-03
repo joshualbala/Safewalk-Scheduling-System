@@ -14,6 +14,7 @@ export default function availability() {
     var initList:(string[]) = [""];
     let [availList, setAvailList] = useState(initList);
     async function setInit(){
+        //checks if usrDoc exists for testing purposes
         if(usrDoc){
         useEffect(() => {
             usrDoc.then((newDoc) => {
@@ -280,6 +281,11 @@ export default function availability() {
                         <AvailSelectButton sendBoolean={handleCallBack} shift="sat12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                     </div>
             </div>
+            {submitButton && (
+                <div className="sticky bottom-10 bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white">
+                    {submitButton}
+                </div>
+            )}
             </main>
         </>
         )
