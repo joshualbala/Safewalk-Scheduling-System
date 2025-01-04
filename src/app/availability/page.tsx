@@ -8,15 +8,13 @@ import AvailSelectButton from "../components/SelectButton/AvailSelectButton";
 import { setNewAvail } from "../firebaseConfig";
 
 export default function availability() {
-    //  if(!protectRoute()){
-    //       return null;
-    //  }
+     if(!protectRoute()){
+          return null;
+     }
     setWhichPage(3);
     var initList:(string[]) = [""];
     let [availList, setAvailList] = useState(initList);
     async function setInit(){
-        //checks if usrDoc exists for testing purposes
-        if(usrDoc){
         useEffect(() => {
             usrDoc.then((newDoc) => {
                 if (newDoc.availability){
@@ -24,7 +22,6 @@ export default function availability() {
                 }
             })
         }, [])
-    }
     }
     setInit()
     const [childBoolean, setChildBoolean] = useState(false);
@@ -34,16 +31,11 @@ export default function availability() {
     useEffect(() => {
         if (childBoolean) {
             setSubmit(
-            <button className = "absolute top-l 840:sticky 840:top-f bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white" 
+            <button className = "absolute top-l 840:fixed 840:top-h lg:top-f bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white" 
                 onClick={() => {setNewAvail(availList)}} >Submit</button>    
             );
         }
     }, [childBoolean]);
-    // {submitButton && (
-    //     <div className="absolute top-l bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white">
-    //         {submitButton}
-    //     </div>
-    // )}
 
     const handleCallBack = (value: boolean) => setChildBoolean(value);
    

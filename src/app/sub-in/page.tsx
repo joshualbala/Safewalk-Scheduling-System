@@ -38,13 +38,14 @@ export default function sub_in() {
 
     const [submitButton, setSubmit] = useState<JSX.Element | null>(null);
 
-    useEffect(() => {
-        if (childBoolean) {
-            setSubmit(
-                <button onClick={() => setNewShifts(inList)}>Submit</button>
-            );
-        }
-    }, [childBoolean]);
+       useEffect(() => {
+            if (childBoolean) {
+                setSubmit(
+                <button className = "absolute top-l 840:fixed 840:top-h lg:top-f bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-blue-600 hover:bg-blue-900 active:bg-white" 
+                    onClick={() => {setNewShifts(inList)}} >Submit</button>    
+                );
+            }
+        }, [childBoolean]);
 
     const handleCallBack = (value: boolean) => setChildBoolean(value);
     useEffect(() => {
@@ -183,11 +184,7 @@ export default function sub_in() {
                         <InSelectButton sendBoolean={handleCallBack} prevSubbed={prevSubbed} openShifts= {shifts} setOpenShifts={setShifts} shift="sat12" changeList={inList} setChangeList={setInList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"/>
                 </div>
                 </div>
-                {submitButton && (
-                <div className="sticky bottom-10 bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-blue-600 hover:bg-blue-900 active:bg-white">
-                    {submitButton}
-                </div>
-                )}
+                {submitButton}
             </main>
             </>
         )
@@ -286,11 +283,7 @@ export default function sub_in() {
                         <InSelectButton sendBoolean={handleCallBack} prevSubbed={prevSubbed} openShifts= {shifts} setOpenShifts={setShifts} shift="sat12" changeList={inList} setChangeList={setInList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"/>
                     </div>
             </div>
-            {submitButton && (
-                <div className="sticky bottom-10 bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-blue-600 hover:bg-blue-900 active:bg-white">
-                    {submitButton}
-                </div>
-            )}
+            {submitButton}
             </main>
         </>
         )

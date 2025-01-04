@@ -23,8 +23,6 @@ export default function sub_in() {
                 }
             })
         }, [])
-        
-        
     }
     setInit()
     const [childBoolean, setChildBoolean] = useState(false);
@@ -34,7 +32,8 @@ export default function sub_in() {
     useEffect(() => {
         if (childBoolean) {
             setSubmit(
-                <button onClick={() => setNewShifts(outList)}>Submit</button>           
+            <button className = "absolute top-l 840:fixed 840:top-h lg:top-f bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-red-600 hover:bg-red-900 active:bg-white" 
+                onClick={() => {setNewShifts(outList)}} >Submit</button>    
             );
         }
     }, [childBoolean]);
@@ -176,11 +175,7 @@ export default function sub_in() {
                         <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="sat12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                 </div>
                 </div>
-                {submitButton && (
-                <div className="sticky bottom-10 bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-red-600 hover:bg-red-900 active:bg-white">
-                    {submitButton}
-                </div>
-                )}
+                {submitButton}
             </main>
             </>
         )
@@ -279,6 +274,7 @@ export default function sub_in() {
                         <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="sat12" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                     </div>
             </div>
+            {submitButton}
             </main>
         </>
         )
