@@ -36,6 +36,7 @@ export default function availability() {
             onStartup(user).then((output) => {
                 setUsrDoc(output[0] as Promise<UserInfo>)
                 setOpenShifts(output[1] as Promise<string[]>)
+                console.log("On Auth Sate Changed")
             })
             
         })

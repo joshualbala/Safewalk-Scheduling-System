@@ -11,7 +11,6 @@ DocumentData}
 from "firebase/firestore";
 import availability from "./availability/page";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -121,20 +120,18 @@ export async function onStartup(user: (User | null)){
 }
 
 export function setNewAvail(newList:string[]){
-  
-    
     updateDoc(usrDocRef, {availability:newList})
     .then(() =>{
-      
       console.log("DONE!")
+      window.location.reload();
     })
-    
 }
 
 export function setNewShifts(newList:string[]){
     updateDoc(usrDocRef, {temp_shifts:newList})
     .then(() =>{
       console.log("DONE!")
+      window.location.reload();
     })
     
    
