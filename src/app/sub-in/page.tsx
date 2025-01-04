@@ -204,15 +204,15 @@ export default function sub_in() {
                         <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                         {/* 1 x 2 */}
                         <div className="flex bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <div className="text-center capitalize font-bold transform translate-y-4 text-xs leading-6">9:00PM - 11:00PM</div>
+                            <div className="text-center capitalize font-bold flex items-center text-xs leading-6">9:00PM - 11:00PM</div>
                         </div>
                         {/* 1 x 3 */}
                         <div className="flex bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <div className="text-center capitalize font-bold transform translate-y-4 text-xs leading-6">10:15PM - 12:15AM</div>
+                            <div className="text-center capitalize font-bold flex items-center text-xs leading-6">10:15PM - 12:15AM</div>
                         </div>
                         {/* 1 x 4 */}
                         <div className="flex bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <div className="text-center capitalize font-bold transform translate-y-4 text-xs leading-6">12:15 PM - 2:15 AM</div>
+                            <div className="text-center capitalize font-bold flex items-center text-xs leading-6">12:15 PM - 2:15 AM</div>
                         </div>
                         {/* 2 x 1 */}
                         <div className="bg-blue-700 w-18 h-18 lg:w-24 lg:h-24">

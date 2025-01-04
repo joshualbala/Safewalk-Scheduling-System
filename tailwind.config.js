@@ -39,6 +39,11 @@ module.exports = {
       '730':'730px',
       '1310':'1310px',
     },
+    spacing:{
+      'f':'620px',
+      'h':'510px',
+      'l':'780px'
+    }
   },
   darkMode: "class",    
   
