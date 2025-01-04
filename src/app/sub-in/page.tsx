@@ -4,6 +4,7 @@ import  {Component} from "@/app/components/header_button";
 import {protectRoute } from "../ProtectRoutes";
 import { usrDoc, openShifts } from "../firebaseConfig";
 import InSelectButton from "../components/SelectButton/InSelectButton";
+import { setNewShifts } from "../firebaseConfig";
 
 export default function sub_in() {
    if(!protectRoute()){
@@ -40,7 +41,7 @@ export default function sub_in() {
     useEffect(() => {
         if (childBoolean) {
             setSubmit(
-                <button>Submit</button>           
+                <button onClick={() => setNewShifts(inList)}>Submit</button>
             );
         }
     }, [childBoolean]);

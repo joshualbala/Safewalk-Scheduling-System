@@ -5,7 +5,6 @@ import { useState } from "react";
 
 const AvailSelectButton: React.FC<SelectButtonProps> = (props) => {
     function handleClick(){
-        console.log(props.changeList)
         if(props.changeList && props.changeList.includes(props.shift)){
             let temp = props.changeList.filter((item) => item != props.shift)
             props.setChangeList(temp)

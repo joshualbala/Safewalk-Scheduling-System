@@ -3,7 +3,6 @@ import { OutButtonProps, SelectButtonProps } from "./SelectButton.types";
 const OutSelectButton: React.FC<OutButtonProps> = (props:OutButtonProps) => {
 
     function handleClick(){
-        console.log(props.prevSubbed.current.includes(props.shift))
         if(props.changeList.includes(props.shift)){
             let temp = props.changeList.filter((item) => item != props.shift)
             props.setChangeList(temp)

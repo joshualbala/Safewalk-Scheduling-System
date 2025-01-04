@@ -5,8 +5,12 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, 
   collection, onSnapshot, doc, getDoc, getDocs, //getting data 
 query, where, updateDoc,
-getDocFromServer} //
+getDocFromServer,
+DocumentReference,
+DocumentData} //
  from "firebase/firestore";
+import availability from "./availability/page";
+import { useEffect } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -66,13 +70,13 @@ var shifts:Map<string, number> = new Map(
 )
 
 var openShifts:Promise<string[]>;
+var usrDocRef:DocumentReference<DocumentData, DocumentData>;
 export async function onStartup(){
   onAuthStateChanged(auth, (user)=>{
   
   curUsr = user
-  console.log(user)
   if (user && !usrDoc){
-    var usrDocRef = doc(db, 'Users', user.uid)
+    usrDocRef = doc(db, 'Users', user.uid)
     try{
         usrDoc = Promise.resolve(getDoc(usrDocRef).then((docSnap) => {
           const res = docSnap.data() as UserInfo;
@@ -86,7 +90,7 @@ export async function onStartup(){
     }
     
   }else if (!user){
-    console.log("what the fuck is happening")
+    console.log("what is happening")
   }
   })
   
@@ -116,6 +120,29 @@ export async function onStartup(){
     })
     return ret;
   })
+}
+
+export function setNewAvail(newList:string[]){
+    usrDoc.then((newDoc) => {
+      updateDoc(usrDocRef, {availability:newList})
+      .then(() =>{
+        console.log("DONE!")
+      })
+        
+    })
+}
+
+export function setNewShifts(newList:string[]){
+  
+ 
+    usrDoc.then((newDoc) => {
+      updateDoc(usrDocRef, {temp_shifts:newList})
+      .then(() =>{
+        console.log("DONE!")
+      })
+    })
+
+ 
 }
 
 export {app, auth, usrDoc, openShifts}
