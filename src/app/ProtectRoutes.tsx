@@ -12,7 +12,7 @@ export const protectRoute = () =>{
         // }, []);
       try{
         getAuth().onAuthStateChanged(function(user) {
-          console.log("get auth exists")
+          //console.log("get auth exists")
           if (!user) {
             router.push("/sign-in");
           } 

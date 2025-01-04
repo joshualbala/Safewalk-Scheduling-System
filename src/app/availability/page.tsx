@@ -3,35 +3,45 @@ import {Dispatch, SetStateAction, useState, useEffect } from "react";
 import  {Component} from "@/app/components/header_button";
 import { setWhichPage } from "@/app/components/header_button";
 import { protectRoute } from "../ProtectRoutes";
-import { onStartup, UserInfo, setNewAvail } from "../firebaseConfig";
+import { onStartup, UserInfo, setNewAvail, app, auth } from "../firebaseConfig";
 import AvailSelectButton from "../components/SelectButton/AvailSelectButton";
 import { useRouter } from "next/navigation";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default function availability() {
-     protectRoute()
+    protectRoute()
+    
+    const [usrDoc, setUsrDoc] = useState<Promise<UserInfo> | null>(null);
+    const [openShifts, setOpenShifts] = useState<Promise<string[]> | null> (null)
 
-     var usrDoc:Promise<UserInfo>, openShifts:Promise<string[]>;
-    onStartup().then((output) => {
-        usrDoc = output[0] as Promise<UserInfo>
-        openShifts = output[1] as Promise<string[]>
-    })
     setWhichPage(3);
     var initList:(string[]) = [""];
     let [availList, setAvailList] = useState(initList);
-    async function setInit(){
-        useEffect(() => {
-            usrDoc.then((newDoc) => {
-                if (newDoc.availability){
-                    setAvailList(newDoc.availability)
-                }
-            })
-        }, [usrDoc])
-    }
    
-    setInit()
     const [childBoolean, setChildBoolean] = useState(false);
 
     const [submitButton, setSubmit] = useState<JSX.Element | null>(null);
+    useEffect(() => {   
+        if (usrDoc) {
+            usrDoc.then((newDoc) => {
+                if (newDoc.availability){
+                    setAvailList([...newDoc.availability])
+                }
+            })
+        }
+        
+    }, [usrDoc])
+    useEffect(() => {
+        const login_list = onAuthStateChanged(auth, (user) => {
+            onStartup(user).then((output) => {
+                setUsrDoc(output[0] as Promise<UserInfo>)
+                setOpenShifts(output[1] as Promise<string[]>)
+            })
+            
+        })
+        return login_list
+    }, [''])
+    
 
     useEffect(() => {
         if (childBoolean) {

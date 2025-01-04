@@ -30,7 +30,6 @@ export default function SignInPage() {
     try {
       const res = await signInWithEmailAndPassword(email, password);
       if (res?.user) { 
-        onStartup()// sets up server stuff      
         setEmail("");
         setPassword("");
         setWrongAddr(null);

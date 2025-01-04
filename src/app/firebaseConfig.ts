@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { unsubscribe } from "diagnostics_channel";
 import {initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 import { getFirestore, 
   collection, onSnapshot, doc, getDoc, getDocs, //getting data 
 query, where, updateDoc,
@@ -29,7 +29,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-const auth = getAuth(app)
+var auth = getAuth(app)
 
 const db = getFirestore();
 
@@ -68,8 +68,8 @@ var shifts:Map<string, number> = new Map(
 )
 
 var usrDocRef:DocumentReference<DocumentData, DocumentData>;
-export async function onStartup(){
-  var user = auth.currentUser;
+export async function onStartup(user: (User | null)){
+ 
   var usrDoc:Promise<UserInfo>;
   var openShifts:Promise<string[]>;
 
@@ -116,6 +116,7 @@ export async function onStartup(){
     })
     return ret;
   })
+  
   return [usrDoc, openShifts]
 }
 
@@ -124,18 +125,15 @@ export function setNewAvail(newList:string[]){
     
     updateDoc(usrDocRef, {availability:newList})
     .then(() =>{
-      onStartup();
+      
       console.log("DONE!")
     })
     
 }
 
 export function setNewShifts(newList:string[]){
-   
-    
     updateDoc(usrDocRef, {temp_shifts:newList})
     .then(() =>{
-      onStartup();
       console.log("DONE!")
     })
     

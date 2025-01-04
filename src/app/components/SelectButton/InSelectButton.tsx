@@ -1,17 +1,14 @@
 import { InButtonProps } from "./SelectButton.types";
-import { usrDoc } from "@/app/firebaseConfig";
-
 const InSelectButton: React.FC<InButtonProps> = (props:InButtonProps) => {
 
     function handleClick(){
         if(props.changeList.includes(props.shift) && !props.prevSubbed.current.includes(props.shift)){
             let temp = props.changeList.filter((item) => item != props.shift)
             props.setChangeList(temp)
-            console.log(props.changeList)
+            
         } else if (props.changeList){
             let temp = [...props.changeList, props.shift]
             props.setChangeList(temp)
-            console.log(props.changeList)
         }
         props.sendBoolean(true);
     }

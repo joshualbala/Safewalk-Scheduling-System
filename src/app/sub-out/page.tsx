@@ -1,36 +1,48 @@
 'use client'
 import React, {useEffect, useRef, useState} from "react";
-import  {Component} from "@/app/components/header_button";
+import  {Component, setWhichPage} from "@/app/components/header_button";
 import {protectRoute } from "../ProtectRoutes";
-import {  onStartup, UserInfo,setNewShifts } from "../firebaseConfig";
+import {  onStartup, UserInfo,setNewShifts, app, auth } from "../firebaseConfig";
 import OutSelectButton from "../components/SelectButton/OutSelectButton";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default function sub_in() {
-    protectRoute()
-    
-    var usrDoc:Promise<UserInfo>, openShifts:Promise<string[]>;
-        onStartup().then((output) => {
-            usrDoc = output[0] as Promise<UserInfo>
-            openShifts = output[1] as Promise<string[]>
-        })
+    protectRoute();
+    const [usrDoc, setUsrDoc] = useState<Promise<UserInfo> | null>(null);
+    const [openShifts, setOpenShifts] = useState<Promise<string[]> | null> (null)
+    setWhichPage(2);
+
     const [screenWidth, setScreenWidth] = useState<number>(1000);
     var initList:(string[]) = [];
     let [outList, setOutList] = useState(initList);
     let prevSubbed = useRef([""])
-    async function setInit(){
-        useEffect(() => {
-            usrDoc.then((newDoc) => {
-                if (newDoc.temp_shifts){
-                    setOutList(newDoc.temp_shifts)
-                    prevSubbed.current = newDoc.temp_shifts
-                }
-            })
-        }, [usrDoc])
-    }
-    setInit()
+   
     const [childBoolean, setChildBoolean] = useState(false);
 
     const [submitButton, setSubmit] = useState<JSX.Element | null>(null);
+
+    
+    useEffect(() => {   
+        if (usrDoc) {
+            usrDoc.then((newDoc) => {
+                if (newDoc.temp_shifts){
+                    prevSubbed.current = newDoc.temp_shifts
+                    setOutList([...newDoc.temp_shifts])
+                }
+            })
+        }
+        
+    }, [usrDoc])
+    useEffect(() => {
+        const login_list = onAuthStateChanged(auth, (user) => {
+            onStartup(user).then((output) => {
+                setUsrDoc(output[0] as Promise<UserInfo>)
+                setOpenShifts(output[1] as Promise<string[]>)
+            })
+            
+        })
+        return login_list
+    }, [''])
 
     useEffect(() => {
         if (childBoolean) {
