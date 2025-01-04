@@ -3,14 +3,21 @@ import {Dispatch, SetStateAction, useState, useEffect } from "react";
 import  {Component} from "@/app/components/header_button";
 import { setWhichPage } from "@/app/components/header_button";
 import { protectRoute } from "../ProtectRoutes";
-import { usrDoc } from "../firebaseConfig";
+import { onStartup, UserInfo, setNewAvail } from "../firebaseConfig";
 import AvailSelectButton from "../components/SelectButton/AvailSelectButton";
-import { setNewAvail } from "../firebaseConfig";
 
 export default function availability() {
+    
+
      if(!protectRoute()){
           return null;
      }
+
+     var usrDoc:Promise<UserInfo>, openShifts:Promise<string[]>;
+    onStartup().then((output) => {
+        usrDoc = output[0] as Promise<UserInfo>
+        openShifts = output[1] as Promise<string[]>
+    })
     setWhichPage(3);
     var initList:(string[]) = [""];
     let [availList, setAvailList] = useState(initList);
@@ -21,8 +28,9 @@ export default function availability() {
                     setAvailList(newDoc.availability)
                 }
             })
-        }, [])
+        }, [usrDoc])
     }
+   
     setInit()
     const [childBoolean, setChildBoolean] = useState(false);
 
@@ -35,7 +43,7 @@ export default function availability() {
                 onClick={() => {setNewAvail(availList)}} >Submit</button>    
             );
         }
-    }, [childBoolean]);
+    }, [childBoolean, availList]);
 
     const handleCallBack = (value: boolean) => setChildBoolean(value);
    

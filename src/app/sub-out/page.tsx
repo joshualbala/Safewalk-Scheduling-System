@@ -2,14 +2,18 @@
 import React, {useEffect, useRef, useState} from "react";
 import  {Component} from "@/app/components/header_button";
 import {protectRoute } from "../ProtectRoutes";
-import { usrDoc } from "../firebaseConfig";
+import {  onStartup, UserInfo,setNewShifts } from "../firebaseConfig";
 import OutSelectButton from "../components/SelectButton/OutSelectButton";
-import { setNewShifts } from "../firebaseConfig";
 
 export default function sub_in() {
    if(!protectRoute()){
         return null;
     }
+    var usrDoc:Promise<UserInfo>, openShifts:Promise<string[]>;
+        onStartup().then((output) => {
+            usrDoc = output[0] as Promise<UserInfo>
+            openShifts = output[1] as Promise<string[]>
+        })
     const [screenWidth, setScreenWidth] = useState<number>(1000);
     var initList:(string[]) = [];
     let [outList, setOutList] = useState(initList);
@@ -22,7 +26,7 @@ export default function sub_in() {
                     prevSubbed.current = newDoc.temp_shifts
                 }
             })
-        }, [])
+        }, [usrDoc])
     }
     setInit()
     const [childBoolean, setChildBoolean] = useState(false);
@@ -33,10 +37,10 @@ export default function sub_in() {
         if (childBoolean) {
             setSubmit(
             <button className = "absolute top-l 840:fixed 840:top-h lg:top-f bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-red-600 hover:bg-red-900 active:bg-white" 
-                onClick={() => {setNewShifts(outList)}} >Submit</button>    
+                onClick={() => {setNewShifts(outList);}} >Submit</button>    
             );
         }
-    }, [childBoolean]);
+    }, [childBoolean, outList]);
 
     const handleCallBack = (value: boolean) => setChildBoolean(value);
     useEffect(() => {

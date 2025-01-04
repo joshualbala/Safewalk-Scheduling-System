@@ -2,14 +2,20 @@
 import React, {useContext, createContext, useEffect, useState, useRef} from "react";
 import  {Component} from "@/app/components/header_button";
 import {protectRoute } from "../ProtectRoutes";
-import { usrDoc, openShifts } from "../firebaseConfig";
+import {  onStartup, UserInfo,setNewShifts } from "../firebaseConfig";
 import InSelectButton from "../components/SelectButton/InSelectButton";
-import { setNewShifts } from "../firebaseConfig";
+
 
 export default function sub_in() {
    if(!protectRoute()){
         return null;
     }
+    var usrDoc:Promise<UserInfo>, openShifts:Promise<string[]>;
+    onStartup().then((output) => {
+        usrDoc = output[0] as Promise<UserInfo>
+        openShifts = output[1] as Promise<string[]>
+        console.log(openShifts)
+    })
     const [screenWidth, setScreenWidth] = useState<number>(1000);
     var initList:(string[]) = [];
     let [inList, setInList] = useState(initList);
@@ -23,29 +29,34 @@ export default function sub_in() {
                     prevSubbed.current = newDoc.temp_shifts
                 }
             })
-        }, [])
+        }, [usrDoc])
         useEffect(()=>{
-            openShifts.then((theShifts) =>{
-                if (theShifts){
-                    setShifts(theShifts)
-                }
-            })
-        })
+                openShifts.then((theShifts) =>{
+                    if (theShifts){
+                        setShifts(theShifts)
+                    }
+                })
+            }, [openShifts])
+        
+       
         
     }
+    
     setInit()
     const [childBoolean, setChildBoolean] = useState(false);
 
     const [submitButton, setSubmit] = useState<JSX.Element | null>(null);
 
        useEffect(() => {
+            console.log(inList)
             if (childBoolean) {
                 setSubmit(
                 <button className = "absolute top-l 840:fixed 840:top-h lg:top-f bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-blue-600 hover:bg-blue-900 active:bg-white" 
-                    onClick={() => {setNewShifts(inList)}} >Submit</button>    
+                    onClick={() => {
+                        setNewShifts(inList);}} >Submit</button>    
                 );
             }
-        }, [childBoolean]);
+        }, [childBoolean, inList]);
 
     const handleCallBack = (value: boolean) => setChildBoolean(value);
     useEffect(() => {

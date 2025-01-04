@@ -35,15 +35,13 @@ const db = getFirestore();
 const colRef = collection(db, 'Users')
 
 
-interface UserInfo {
+export interface UserInfo {
   availability?:string[],
   email?:string,
   perm_shifts?:string[],
   temp_shifts?:string[],
 }
-var curUsr = auth.currentUser
 
-var usrDoc:Promise<UserInfo>;
 
 
 
@@ -69,30 +67,28 @@ var shifts:Map<string, number> = new Map(
   ["sun12",4]]
 )
 
-var openShifts:Promise<string[]>;
 var usrDocRef:DocumentReference<DocumentData, DocumentData>;
 export async function onStartup(){
-  onAuthStateChanged(auth, (user)=>{
-  
-  curUsr = user
-  if (user && !usrDoc){
+  var user = auth.currentUser;
+  var usrDoc:Promise<UserInfo>;
+  var openShifts:Promise<string[]>;
+
+  if (user){
     usrDocRef = doc(db, 'Users', user.uid)
-    try{
-        usrDoc = Promise.resolve(getDoc(usrDocRef).then((docSnap) => {
-          const res = docSnap.data() as UserInfo;
-          return res
-          
-        })
-        
-      )
-    }catch (error){
-      console.log("server call failed")
-    }
-    
-  }else if (!user){
-    console.log("what is happening")
+ 
+    usrDoc = Promise.resolve(getDoc(usrDocRef).then((docSnap) => {
+      const res = docSnap.data() as UserInfo;
+      return res
+    }) 
+  ) 
+  }else{
+    usrDoc = Promise.resolve( 
+      { availability:undefined, 
+        email: undefined, 
+        perm_shifts:undefined,
+         temp_shifts: undefined} as UserInfo);
   }
-  })
+
   
 
   openShifts = getDocs(colRef)
@@ -120,29 +116,31 @@ export async function onStartup(){
     })
     return ret;
   })
+  return [usrDoc, openShifts]
 }
 
 export function setNewAvail(newList:string[]){
-    usrDoc.then((newDoc) => {
-      updateDoc(usrDocRef, {availability:newList})
-      .then(() =>{
-        console.log("DONE!")
-      })
-        
+  
+    
+    updateDoc(usrDocRef, {availability:newList})
+    .then(() =>{
+      onStartup();
+      console.log("DONE!")
     })
+  
+    
 }
 
 export function setNewShifts(newList:string[]){
-  
- 
-    usrDoc.then((newDoc) => {
-      updateDoc(usrDocRef, {temp_shifts:newList})
-      .then(() =>{
-        console.log("DONE!")
-      })
+   
+    
+    updateDoc(usrDocRef, {temp_shifts:newList})
+    .then(() =>{
+      onStartup();
+      console.log("DONE!")
     })
-
- 
+    
+   
 }
 
-export {app, auth, usrDoc, openShifts}
+export {app, auth}
