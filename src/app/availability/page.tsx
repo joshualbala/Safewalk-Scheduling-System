@@ -8,9 +8,9 @@ import AvailSelectButton from "../components/SelectButton/AvailSelectButton";
 import { setNewAvail } from "../firebaseConfig";
 
 export default function availability() {
-     if(!protectRoute()){
-          return null;
-     }
+    //  if(!protectRoute()){
+    //       return null;
+    //  }
     setWhichPage(3);
     var initList:(string[]) = [""];
     let [availList, setAvailList] = useState(initList);
@@ -34,11 +34,16 @@ export default function availability() {
     useEffect(() => {
         if (childBoolean) {
             setSubmit(
-            <button className = "sticky bottom-10 bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white" 
+            <button className = "absolute top-l 840:sticky 840:top-f bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white" 
                 onClick={() => {setNewAvail(availList)}} >Submit</button>    
             );
         }
     }, [childBoolean]);
+    // {submitButton && (
+    //     <div className="absolute top-l bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white">
+    //         {submitButton}
+    //     </div>
+    // )}
 
     const handleCallBack = (value: boolean) => setChildBoolean(value);
    
@@ -279,11 +284,7 @@ export default function availability() {
                         <AvailSelectButton sendBoolean={handleCallBack} shift="sat12" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                     </div>
             </div>
-            {submitButton && (
-                <div className="absolute top-l bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white">
-                    {submitButton}
-                </div>
-            )}
+            {submitButton}
             </main>
         </>
         )
