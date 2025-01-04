@@ -6,9 +6,8 @@ import {  onStartup, UserInfo,setNewShifts } from "../firebaseConfig";
 import OutSelectButton from "../components/SelectButton/OutSelectButton";
 
 export default function sub_in() {
-   if(!protectRoute()){
-        return null;
-    }
+    protectRoute()
+    
     var usrDoc:Promise<UserInfo>, openShifts:Promise<string[]>;
         onStartup().then((output) => {
             usrDoc = output[0] as Promise<UserInfo>

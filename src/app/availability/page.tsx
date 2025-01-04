@@ -5,13 +5,10 @@ import { setWhichPage } from "@/app/components/header_button";
 import { protectRoute } from "../ProtectRoutes";
 import { onStartup, UserInfo, setNewAvail } from "../firebaseConfig";
 import AvailSelectButton from "../components/SelectButton/AvailSelectButton";
+import { useRouter } from "next/navigation";
 
 export default function availability() {
-    
-
-     if(!protectRoute()){
-          return null;
-     }
+     protectRoute()
 
      var usrDoc:Promise<UserInfo>, openShifts:Promise<string[]>;
     onStartup().then((output) => {

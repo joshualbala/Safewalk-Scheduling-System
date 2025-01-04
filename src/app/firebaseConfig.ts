@@ -7,10 +7,11 @@ import { getFirestore,
 query, where, updateDoc,
 getDocFromServer,
 DocumentReference,
-DocumentData} //
- from "firebase/firestore";
+DocumentData}
+from "firebase/firestore";
 import availability from "./availability/page";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -33,7 +34,6 @@ const auth = getAuth(app)
 const db = getFirestore();
 
 const colRef = collection(db, 'Users')
-
 
 export interface UserInfo {
   availability?:string[],
@@ -127,7 +127,6 @@ export function setNewAvail(newList:string[]){
       onStartup();
       console.log("DONE!")
     })
-  
     
 }
 
