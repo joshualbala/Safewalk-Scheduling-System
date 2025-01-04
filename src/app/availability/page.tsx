@@ -179,7 +179,7 @@ export default function availability() {
                 </div>
                 </div>
                 {submitButton && (
-                <div className="sticky bottom-10 bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white">
+                <div className="fixed top-h lg:top-f bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white">
                     {submitButton}
                 </div>
                 )}
@@ -193,21 +193,21 @@ export default function availability() {
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
             <div className="header" ><Component/></div>
             <main className="flex flex-col justify-between items-center min-h-screen p-24 bg-gray-900 min-w-540">
-                <div className="p-5 min-w-[540px] border-10 border-solid border-green-700 rounded-3xl">
+                <div className="p-5 border-10 border-solid border-green-700 rounded-3xl">
                   <div className="grid grid-cols-4 grid-rows-8 gap-2">
                         {/* 1 x 1 */}
                         <div className="bg-green-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                         {/* 1 x 2 */}
                         <div className="flex bg-green-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <div className="text-center capitalize font-bold transform translate-y-4 text-xs leading-6">9:00PM - 11:00PM</div>
+                            <div className="text-center capitalize font-bold flex items-center text-xs leading-6">9:00PM - 11:00PM</div>
                         </div>
                         {/* 1 x 3 */}
                         <div className="flex bg-green-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <div className="text-center capitalize font-bold transform translate-y-4 text-xs leading-6">10:15PM - 12:15AM</div>
+                            <div className="text-center capitalize font-bold flex items-center text-xs leading-6">10:15PM - 12:15AM</div>
                         </div>
                         {/* 1 x 4 */}
                         <div className="flex bg-green-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <div className="text-center capitalize font-bold transform translate-y-4 text-xs leading-6">12:15 PM - 2:15 AM</div>
+                            <div className="text-center capitalize font-bold flex items-center text-xs leading-6">12:15 PM - 2:15 AM</div>
                         </div>
                         {/* 2 x 1 */}
                         <div className="bg-green-700 w-18 h-18 lg:w-24 lg:h-24">
@@ -282,7 +282,7 @@ export default function availability() {
                     </div>
             </div>
             {submitButton && (
-                <div className="sticky bottom-10 bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white">
+                <div className="absolute top-l bg-gray-900 p-3 w-96 font-xl rounded-3xl text-white text-center border-8 border-green-600 hover:bg-green-900 active:bg-white">
                     {submitButton}
                 </div>
             )}
