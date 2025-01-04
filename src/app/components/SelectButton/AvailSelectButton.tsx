@@ -16,11 +16,11 @@ const AvailSelectButton: React.FC<SelectButtonProps> = (props) => {
     }
     if (props.changeList && props.changeList.includes(props.shift)){
         return (
-            <button onClick= {handleClick} className={props.className + " bg-gray-500"}> button </button>
+            <button onClick= {handleClick} className={props.className + " bg-green-700"}> </button>
         )
     }
     return (
-        <button onClick= {handleClick} className={props.className + " bg-green-700"}> button </button>
+        <button onClick= {handleClick} className={props.className + " bg-gray-900 text-8xl text-center leading-3 font-cool text-green-700"}> X </button>
     )
     
 }

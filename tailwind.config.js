@@ -14,7 +14,6 @@ module.exports = {
       '14':'30px',
       '75':'75px',
       '100': '100px',
-
     },
     width:{
       '18':'70px',
@@ -33,7 +32,8 @@ module.exports = {
       "cool": ["Rubik Vinyl", "ui-sans-serif", "system-ui"]
     },
     fontSize:{
-      "rm": "0px"
+      "rm": "0px",
+      'huge':'2000px',
     },
     screens:{
       '730':'730px',

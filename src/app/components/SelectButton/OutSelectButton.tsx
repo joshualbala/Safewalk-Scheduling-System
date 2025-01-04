@@ -14,15 +14,15 @@ const OutSelectButton: React.FC<OutButtonProps> = (props:OutButtonProps) => {
     }
     if (props.changeList.includes(props.shift)){
         return (
-            <button onClick= {handleClick} className={props.className + " bg-red-700"}> button </button>
+            <button onClick= {handleClick} className={props.className + " bg-red-700"}></button>
         )
     } 
     if (props.prevSubbed.current.includes(props.shift)){
-        return (<button onClick= {handleClick} className={props.className + " bg-gray-500"}> button </button>)
+        return (<button onClick= {handleClick} className={props.className + " bg-gray-500"}></button>)
     }
     return (
        
-       <div className={props.className + " border-2 border-red-900"}></div>
+       <div className={props.className + " border-2 border-red-700"}></div>
     )
 }
 

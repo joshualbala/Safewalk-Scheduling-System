@@ -11,8 +11,8 @@ export default function sub_in() {
     const [usrDoc, setUsrDoc] = useState<Promise<UserInfo> | null>(null);
     const [openShifts, setOpenShifts] = useState<Promise<string[]> | null> (null)
     setWhichPage(2);
-
-    const [screenWidth, setScreenWidth] = useState<number>(1000);
+    
+    const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
     var initList:(string[]) = [];
     let [outList, setOutList] = useState(initList);
     let prevSubbed = useRef([""])
@@ -207,15 +207,15 @@ export default function sub_in() {
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24"></div>
                         {/* 1 x 2 */}
                         <div className="flex bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <div className="text-center capitalize font-bold transform translate-y-4 text-xs leading-6">9:00PM - 11:00PM</div>
+                            <div className="text-center capitalize font-bold flex items-center text-xs leading-6">9:00PM - 11:00PM</div>
                         </div>
                         {/* 1 x 3 */}
                         <div className="flex bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <div className="text-center capitalize font-bold transform translate-y-4 text-xs leading-6">10:15PM - 12:15AM</div>
+                            <div className="text-center capitalize font-bold flex items-center text-xs leading-6">10:15PM - 12:15AM</div>
                         </div>
                         {/* 1 x 4 */}
                         <div className="flex bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
-                            <div className="text-center capitalize font-bold transform translate-y-4 text-xs leading-6">12:15 PM - 2:15 AM</div>
+                            <div className="text-center capitalize font-bold flex items-center text-xs leading-6">12:15 PM - 2:15 AM</div>
                         </div>
                         {/* 2 x 1 */}
                         <div className="bg-red-700 w-18 h-18 lg:w-24 lg:h-24">
@@ -262,7 +262,7 @@ export default function sub_in() {
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Thursday</p>
                         </div>
                         {/* 6 x 2 */}
-                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="thu10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
+                        <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="thu9" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 6 x 3 */}
                         <OutSelectButton sendBoolean={handleCallBack} prevSubbed= {prevSubbed} shift="thu10" changeList={outList} setChangeList={setOutList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-red-900 active:bg-white"/>
                         {/* 6 x 4 */}

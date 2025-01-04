@@ -12,7 +12,6 @@ export default function availability() {
     protectRoute()
     
     const [usrDoc, setUsrDoc] = useState<Promise<UserInfo> | null>(null);
-    const [openShifts, setOpenShifts] = useState<Promise<string[]> | null> (null)
 
     setWhichPage(3);
     var initList:(string[]) = [""];
@@ -35,7 +34,6 @@ export default function availability() {
         const login_list = onAuthStateChanged(auth, (user) => {
             onStartup(user).then((output) => {
                 setUsrDoc(output[0] as Promise<UserInfo>)
-                setOpenShifts(output[1] as Promise<string[]>)
                 console.log("On Auth Sate Changed")
             })
             
@@ -55,7 +53,7 @@ export default function availability() {
 
     const handleCallBack = (value: boolean) => setChildBoolean(value);
    
-    const [screenWidth, setScreenWidth] = useState<number>(1000);
+    const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
 
     useEffect(() => {
     const updateScreenWidth = () => {
@@ -265,7 +263,7 @@ export default function availability() {
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Thursday</p>
                         </div>
                         {/* 6 x 2 */}
-                        <AvailSelectButton sendBoolean={handleCallBack} shift="thu10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
+                        <AvailSelectButton sendBoolean={handleCallBack} shift="thu9" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 6 x 3 */}
                         <AvailSelectButton sendBoolean={handleCallBack} shift="thu10" changeList={availList} setChangeList={setAvailList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-green-900 active:bg-white"/>
                         {/* 6 x 4 */}

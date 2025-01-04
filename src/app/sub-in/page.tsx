@@ -14,16 +14,11 @@ export default function sub_in() {
     setWhichPage(1)
     
     
-    const [screenWidth, setScreenWidth] = useState<number>(1000);
+    const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
     var initList:(string[]) = [];
     let [inList, setInList] = useState(initList);
     let [shifts, setShifts] = useState(initList)
     let prevSubbed = useRef([""]);
-    
-        
-    
-    
-    
     
     useEffect(() => {
     if (usrDoc){
@@ -282,7 +277,7 @@ export default function sub_in() {
                             <p className="text-center capitalize font-bold text-xs leading-75 lg:leading-100 lg:text-base">Thursday</p>
                         </div>
                         {/* 6 x 2 */}
-                        <InSelectButton sendBoolean={handleCallBack} prevSubbed={prevSubbed} openShifts= {shifts} setOpenShifts={setShifts} shift="thu10" changeList={inList} setChangeList={setInList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"/>
+                        <InSelectButton sendBoolean={handleCallBack} prevSubbed={prevSubbed} openShifts= {shifts} setOpenShifts={setShifts} shift="thu9" changeList={inList} setChangeList={setInList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"/>
                         {/* 6 x 3 */}
                         <InSelectButton sendBoolean={handleCallBack} prevSubbed={prevSubbed} openShifts= {shifts} setOpenShifts={setShifts} shift="thu10" changeList={inList} setChangeList={setInList} className="w-18 h-18 lg:w-24 lg:h-24 hover:bg-blue-900 active:bg-white"/>
                         {/* 6 x 4 */}

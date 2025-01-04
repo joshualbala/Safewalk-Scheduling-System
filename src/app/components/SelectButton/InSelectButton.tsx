@@ -12,13 +12,16 @@ const InSelectButton: React.FC<InButtonProps> = (props:InButtonProps) => {
         }
         props.sendBoolean(true);
     }
-    if ((props.changeList.includes(props.shift)) || (!props.openShifts.includes(props.shift))){
-        return (
-            <button onClick= {handleClick} className={props.className + " bg-gray-500"}> button </button>
-        )
+    if (props.changeList.includes(props.shift) && props.prevSubbed.current.includes(props.shift)){
+       return( <button onClick= {handleClick} className={props.className + " border-2 border-blue-700"}></button>)
+       
     }
+    if ((props.changeList.includes(props.shift)) || (!props.openShifts.includes(props.shift))){
+        return (<button onClick= {handleClick} className={props.className + " bg-gray-500"}></button>)
+    }
+   
     return (
-        <button onClick= {handleClick} className={props.className + " bg-blue-700"}> button </button>
+        <button onClick= {handleClick} className={props.className + " bg-blue-700"}></button>
     )
     
 }
