@@ -35,7 +35,7 @@ Write out a step-by-step guide on how I could run your project on my computer.
 
 6. Images & GIFs presenting your project demo
 Images and GIFs are a great way to visually showcase your project right from the repository, especially if it’s to highlight specific features. Find & download a GIF generator and showcase some of your project’s special features.
-![alt text](Sign-In.png/to/Sign-in.png)
+![alt text](/var/folders/2l/nfdk971s0p12w_zzl9f742bm0000gn/T/TemporaryItems/NSIRD_screencaptureui_b5r0uT/Screenshot 2025-01-05 at 9.23.38 PM.png/to/Sign-in.png)
 
 7. Most difficult aspect of the project
 Write a short paragraph on what you felt was the most difficult aspect of this project, and how you were able to overcome it.
