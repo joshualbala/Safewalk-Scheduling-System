@@ -53,7 +53,7 @@ export default function availability() {
 
     const handleCallBack = (value: boolean) => setChildBoolean(value);
    
-    const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+    const [screenWidth, setScreenWidth] = useState<number>(1000);
 
     useEffect(() => {
     const updateScreenWidth = () => {

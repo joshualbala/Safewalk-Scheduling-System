@@ -2,10 +2,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import type { ReactNode } from "react";
-import  {Component} from "./components/header_button";
-import { redirect } from 'next/navigation';
-import SignInPage from "./sign-in/page";
 
 const inter = Inter({ subsets: ["latin"] });
 

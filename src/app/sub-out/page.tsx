@@ -12,7 +12,7 @@ export default function sub_in() {
     const [openShifts, setOpenShifts] = useState<Promise<string[]> | null> (null)
     setWhichPage(2);
     
-    const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+    const [screenWidth, setScreenWidth] = useState<number>(1000);
     var initList:(string[]) = [];
     let [outList, setOutList] = useState(initList);
     let prevSubbed = useRef([""])

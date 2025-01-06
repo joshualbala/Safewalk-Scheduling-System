@@ -14,7 +14,7 @@ export default function sub_in() {
     setWhichPage(1)
     
     
-    const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+    const [screenWidth, setScreenWidth] = useState<number>(1000);
     var initList:(string[]) = [];
     let [inList, setInList] = useState(initList);
     let [shifts, setShifts] = useState(initList)
