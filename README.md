@@ -33,14 +33,28 @@ Just don’t add every library you used. I think it’s fine to add a library if
 5. Steps on how to get your project up and running on someone else’s machine
 Write out a step-by-step guide on how I could run your project on my computer.
 
-6. Images & GIFs presenting your project demo
-Images and GIFs are a great way to visually showcase your project right from the repository, especially if it’s to highlight specific features. Find & download a GIF generator and showcase some of your project’s special features.
-![alt text](/var/folders/2l/nfdk971s0p12w_zzl9f742bm0000gn/T/TemporaryItems/NSIRD_screencaptureui_b5r0uT/Screenshot 2025-01-05 at 9.23.38 PM.png/to/Sign-in.png)
+## Sign In Page
+![alt text](<Screenshot 2025-01-05 at 9.23.29 PM.png>)
+- This page featues an interative sign in console and the Safewalk logo in the background. Using Googles Firebase authentication the user can only sign in if their username and password is stored in the database. The sign in page is the default page and an hour after sign in their authenication expires which routes them to the sign in page again. If the username or password is wrong it will prompt an error message to display prompting the user to retry.
+![alt text](<Screenshot 2025-01-05 at 9.28.58 PM.png>)
+
+## Availability Page
+![alt text](<Screenshot 2025-01-05 at 9.35.13 PM.png>)
+- Once signed in the user is routed to the availability page. This page allows users to input when they are avialble so they only recieve sub request emails for the corresponding times. An X means that the user isn't avialble at that time and a green square means they are available. For example in the image above I am available Sunday: 9 - 11, Monday 12:15 - 2:15, Tuesday 12:15 - 2:15, etc... Futhermore, the time slots in the top corner are blank becuase Safewalk doesn't operate Friday and Saturday 9 - 11. If the user changes their avaiability they are prompted with a submit button that saves the new availailty to our Firebase database and reloads the page with the updated information. 
+![alt text](<Screenshot 2025-01-05 at 9.43.55 PM.png>)
+
+## Sub-Out Page
+![alt text](<Screenshot 2025-01-05 at 9.41.44 PM.png>)
+- Once you click the Sub-Out button in top header you are linked to the Sub-out Page. This page has a simialar grid layout as the availabilty pages and shows all the shifts that you are currently scheduled to work. All the red squares are shifts that you can sub out of and if you do choose to sub out of a shift you are prompted with a similar submit button as the availability page. Once the submit button is clicked an email will be sent to all safewalkers that indicated they are avialable at that time and, the infromation will be saved in the Firebase databse, andthe page will reload with updated information.
+
+## Sub-In Page
+![alt text](<Screenshot 2025-01-05 at 9.52.05 PM.png>)
+- The Sub-In page uses the same grid layout and shows all shifts that are free for a Safewalk to sub into. Similar to the other pages once you click on a square you will be prompted with a sumbit button that updates the database and reloads the page. The sub-in and sub-out pages are effectively inverses of each other and update each time the other page is updated. For example if a Safewalker subs out of Sunday: 12:15 - 2:15 then the sub-in page will update to include that as a shift they can sub in to. 
 
 7. Most difficult aspect of the project
 Write a short paragraph on what you felt was the most difficult aspect of this project, and how you were able to overcome it.
 
-The goal of your README.md file is to showcase your projects and your abilities as a developer in the shortest amount of time. I encourage you to be creative with images, GIFs, and your copy to achieve this goal.
+8. Future Updates
 
 ## Getting Started
 
