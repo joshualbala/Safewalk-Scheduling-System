@@ -55,14 +55,7 @@ export default function SignInPage() {
     <div className="relative flex items-center justify-center min-h-screen bg-gray-900">
       {/* Background image */}
       {screenWidth > 0 && (
-        <Image
-          src="/safewalk-white.png"
-          alt="Safewalk Logo"
-          layout="fill" // Cover the whole page
-          objectFit="cover" // Keep proportions
-          priority={true}
-          className="absolute inset-0 z-0 scale-105"
-        />
+        <Image src="/safewalk-white.png" alt="Safewalk Logo" className= "absolute"  width={900} height={0} />
       )}
 
       {/* Overlay for darker appearance */}

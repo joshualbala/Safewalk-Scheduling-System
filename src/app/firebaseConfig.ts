@@ -11,6 +11,7 @@ DocumentData}
 from "firebase/firestore";
 import availability from "./availability/page";
 import { useEffect } from "react";
+import firebase from "firebase/compat/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -68,7 +69,6 @@ var shifts:Map<string, number> = new Map(
 
 var usrDocRef:DocumentReference<DocumentData, DocumentData>;
 export async function onStartup(user: (User | null)){
- 
   var usrDoc:Promise<UserInfo>;
   var openShifts:Promise<string[]>;
 
