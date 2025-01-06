@@ -35,7 +35,7 @@ Write out a step-by-step guide on how I could run your project on my computer.
 
 ## Availability Page
 ![alt text](<Screenshot 2025-01-05 at 9.35.13 PM.png>)
-- Once signed in the user is routed to the availability page. This page allows users to input when they are avialble so they only recieve sub request emails for the corresponding times. An X means that the user isn't avialble at that time and a green square means they are available. For example in the image above I am available Sunday: 9 - 11, Monday 12:15 - 2:15, Tuesday 12:15 - 2:15, etc... Futhermore, the time slots in the top corner are blank becuase Safewalk doesn't operate Friday and Saturday 9 - 11. If the user changes their avaiability they are prompted with a submit button that saves the new availailty to our Firebase database and reloads the page with the updated information. 
+- Once signed in the user is routed to the availability page. This page allows users to input when they are avialble so they only recieve sub request emails for the corresponding times. An X means that the user isn't available at that time and a green square means they are available. For example in the image above I am available Sunday: 9 - 11, Monday 12:15 - 2:15, Tuesday 12:15 - 2:15, etc... Futhermore, the time slots in the top corner are blank becuase Safewalk doesn't operate Friday and Saturday 9 - 11. If the user changes their avaiability they are prompted with a submit button that saves the new availailty to our Firebase database and reloads the page with the updated information. 
 ![alt text](<Screenshot 2025-01-05 at 9.43.55 PM.png>)
 
 ## Sub-Out Page
