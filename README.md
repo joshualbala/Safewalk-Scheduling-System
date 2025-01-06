@@ -1,8 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Safewalk Scheduling System
 
 ## Project Description:
@@ -19,7 +14,6 @@ The Sub-in and Sub-out pages simplify managing shifts by presenting current shif
 
 - Availability Page: A user-friendly interface for marking availability in an 8x4 grid format. The system defaults to assume all-time availability unless specified by the user.
 - Sub-In and Sub-Out Pages: Interactive calendar-style interfaces for managing shifts with real-time data on available openings and assigned shifts.
-- Email Notification System: Sends emails to only those staff members who match the availability for a given sub-out request.
 
 ## Goals:
 
@@ -30,6 +24,7 @@ The Sub-in and Sub-out pages simplify managing shifts by presenting current shif
 4. Tech stack
 Just don’t add every library you used. I think it’s fine to add a library if you believe that it conveys your skillset as a developer.
 
+Firebase, Tailwind, React, Next.js
 5. Steps on how to get your project up and running on someone else’s machine
 Write out a step-by-step guide on how I could run your project on my computer.
 
@@ -52,9 +47,11 @@ Write out a step-by-step guide on how I could run your project on my computer.
 - The Sub-In page uses the same grid layout and shows all shifts that are free for a Safewalk to sub into. Similar to the other pages once you click on a square you will be prompted with a sumbit button that updates the database and reloads the page. The sub-in and sub-out pages are effectively inverses of each other and update each time the other page is updated. For example if a Safewalker subs out of Sunday: 12:15 - 2:15 then the sub-in page will update to include that as a shift they can sub in to. 
 
 7. Most difficult aspect of the project
-Write a short paragraph on what you felt was the most difficult aspect of this project, and how you were able to overcome it.
-
+The most difficult aspect for both of us was the continuous learning each step required. Whether it was learning what exactly a promise was in order to fetch information from the database, re-building the project in order to implement Tailwind, or even using Tailwind itself, this project was filled with learning about new things that we didn't get a full picutre of until we were over each hurdle. This, in turn, made this project very difficult to come back to, for most of the work we would leave for next time (next time ranging from a day to 5 months) would require us to re-learn a lot. Fortunately, after a week-long push after Christmas, we are able to show this project off today. 
 8. Future Updates
+Adding an email API to send the emails out on sub-outs, (this is mostly a question of whether or not safewalk has an emailing service already or not).
+
+Resetting availibility and current shifts at the beginning of each week so that staff can sub in and out accordingly.
 
 ## Getting Started
 
