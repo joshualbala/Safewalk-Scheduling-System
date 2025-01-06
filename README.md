@@ -46,12 +46,20 @@ Write out a step-by-step guide on how I could run your project on my computer.
 ![alt text](<Screenshot 2025-01-05 at 9.52.05 PM.png>)
 - The Sub-In page uses the same grid layout and shows all shifts that are free for a Safewalk to sub into. Similar to the other pages, once you click on any blue square you will be prompted with a sumbit button that updates the database and reloads the page. The sub-in and sub-out pages are effectively inverses of each other and update each time the other page is updated. For example if a Safewalker subs out of Sunday: 12:15 - 2:15 then the sub-in page will update to include that as a shift they can sub in to. 
 
-7. Most difficult aspect of the project
-The most difficult aspect for both of us was the continuous learning each step required. Whether it was learning what exactly a promise was in order to fetch information from the database, re-building the project in order to implement Tailwind, or even using Tailwind itself, this project was filled with learning about new things that we didn't get a full picutre of until we were over each hurdle. This, in turn, made this project very difficult to come back to, for most of the work we would leave for next time (next time ranging from a day to 5 months) would require us to re-learn a lot. Fortunately, after a week-long push after Christmas, we are able to show this project off today. 
-8. Future Updates
-Adding an email API to send the emails out on sub-outs, (this is mostly a question of whether or not safewalk has an emailing service already or not).
+## Layout
+![alt text](<Screenshot 2025-01-05 at 11.01.44 PM.png>)
+- Each page handles screen minimzation and for the sub in/sub out/availability the grid rotates to fit a smaller screen. 
 
-Resetting availibility and current shifts at the beginning of each week so that staff can sub in and out accordingly.
+
+## Most difficult aspect of the project
+The most difficult aspect for both of us was the continuous learning each step required. Whether it was learning what exactly a promise was in order to fetch information from the database, re-building the project in order to implement Tailwind, or even using Tailwind itself, this project was filled with learning about new things that we didn't get a full picutre of until we were over each hurdle. This, in turn, made this project very difficult to come back to, for most of the work we would leave for next time (next time ranging from a day to 5 months) would require us to re-learn a lot. Fortunately, after a week-long push after Christmas, we are able to show this project off today. 
+
+## Future Updates
+- Adding an email API to send the emails out on sub-outs, (this is mostly a question of whether or not safewalk has an emailing service already or not).
+
+- Resetting availibility and current shifts at the beginning of each week so that staff can sub in and out accordingly.
+
+- Adding a system to handle subbing in/out of shifts farther in the future
 
 ## Getting Started
 
